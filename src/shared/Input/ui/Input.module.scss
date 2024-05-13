@@ -1,0 +1,7 @@
+.div {
+    @apply flex flex-col justify-center py-2.5 mt-3 w-full text-base bg-gray-200 rounded border border-black border-solid max-w-[300px]
+}
+
+.input {
+    @apply justify-center px-1 bg-gray-200  outline-none
+}
