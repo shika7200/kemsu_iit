@@ -4,13 +4,16 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/enteties/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/widgets/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/widgets/**/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        skyblue: '#A3C4F5'
+        skyblue: '#A3C4F5',
+        'skyblue-deep': '#8DADE5',
+        skypurple: '#928AE9',
+        'skypurple-deep': '#7A77D6'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
