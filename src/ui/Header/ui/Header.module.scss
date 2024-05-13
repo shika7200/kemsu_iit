@@ -1,0 +1,7 @@
+.header {
+    @apply flex gap-2 self-stretch text-xl 
+}
+
+.header_text {
+    @apply flex-auto my-auto 
+}

@@ -2,7 +2,7 @@ import { HeadingProps } from "../types";
 import styles from "./Heading.module.scss"
 
 const Heading: React.FC<HeadingProps> = ({ text }) => (
-    <p className={styles.Heading}>{text}</p>
+    <h2 className={styles.heading}>{text}</h2>
   );
 
   export default Heading;
