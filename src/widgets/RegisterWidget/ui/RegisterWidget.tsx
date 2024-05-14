@@ -3,33 +3,14 @@ import styles from "./RegisterWidget.module.scss";
 import { InputState } from "../types";
 import { handleButtonClick, formatPhoneNumber, handleInputChange } from "../actions";
 import { Heading, PasswordVisibilityToggle, Button, Input } from "@/shared";
+import { inputFields, initialInputs, initialErrors } from "../config";
 
 const RegisterWidget: React.FC = () => {
-  const [inputs, setInputs] = useState<InputState>({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    login: "",
-    password: "",
-  });
+  const [inputs, setInputs] = useState<InputState>(initialInputs);
 
-  const [errors, setErrors] = useState<InputState>({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    login: "",
-    password: "",
-  });
+  const [errors, setErrors] = useState<InputState>(initialErrors);
 
   const [showPassword, setShowPassword] = useState(false);
-
-  const inputFields: { label: string; name: keyof InputState }[] = [
-    { label: "Введите имя", name: "firstName" },
-    { label: "Введите фамилию", name: "lastName" },
-    { label: "Введите телефон", name: "phone" },
-    { label: "Придумайте логин", name: "login" },
-    { label: "Придумайте пароль", name: "password" },
-  ];
 
   const handleFormSubmit = (e: React.FormEvent) =>
     handleButtonClick(e, inputs, setErrors, inputFields);

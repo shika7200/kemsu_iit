@@ -1,8 +1,9 @@
-// actions/handleButtonClick.ts
 import { FormEvent } from "react";
 import { InputState } from "../types";
 import validateEmail from "./validateEmail";
+import validateName from "./validateName";
 import validatePassword from "./validatePassword";
+
 
 const handleButtonClick = (
   e: FormEvent,
@@ -25,6 +26,9 @@ const handleButtonClick = (
   for (const field of inputFields) {
     if (!inputs[field.name]) {
       newErrors[field.name] = "Это поле обязательно для заполнения";
+      hasError = true;
+    } else if ((field.name === "firstName" || field.name === "lastName") && !validateName(inputs[field.name])) {
+      newErrors[field.name] = "Имя и фамилия должны содержать только русские буквы, без цифр и спецсимволов";
       hasError = true;
     } else if (field.name === "login" && !validateEmail(inputs[field.name])) {
       newErrors[field.name] = "Введите корректный адрес электронной почты";
@@ -51,4 +55,3 @@ const handleButtonClick = (
 };
 
 export default handleButtonClick;
-
