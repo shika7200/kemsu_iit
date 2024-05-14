@@ -16,9 +16,11 @@ function LoginWidget() {
   return (
     
      <>
+     <div className="flex flex-col pt-5 text-black bg-white max-w-[375px]">
      
-        <Heading text="Вход" />
-        <form>
+     <main className="flex flex-col justify-center items-center self-center px-2.5 py-5 mt-2.5 w-full text-lg border border-solid bg-neutral-100 border-stone-500 max-w-[349px] rounded-[30px]">
+     <Heading text="Вход" />
+       <form>
           <Input placeholder="Введите логин" />
           <Input placeholder="Введите пароль" />
           
@@ -29,6 +31,11 @@ function LoginWidget() {
           />
          
         </form>
+     </main>
+     
+   </div>
+      
+        
         <div className="flex gap-5 justify-between mt-4">
           <Button
             buttonText="Регистрация"
