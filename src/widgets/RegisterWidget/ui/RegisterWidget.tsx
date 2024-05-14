@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styles from "./RegisterWidget.module.scss";
 import { InputState } from "../types";
-import { handleButtonClick, validateEmail, validatePassword, formatPhoneNumber, handleInputChange } from "../actions";
+import { handleButtonClick, formatPhoneNumber, handleInputChange } from "../actions";
 import { Heading, PasswordVisibilityToggle, Button, Input } from "@/shared";
-
 
 const RegisterWidget: React.FC = () => {
   const [inputs, setInputs] = useState<InputState>({
@@ -32,21 +31,13 @@ const RegisterWidget: React.FC = () => {
     { label: "Придумайте пароль", name: "password" },
   ];
 
+  const handleFormSubmit = (e: React.FormEvent) =>
+    handleButtonClick(e, inputs, setErrors, inputFields);
+
   return (
     <div className={styles.div}>
       <Heading text="Регистрация" />
-      <form
-        onSubmit={(e) =>
-          handleButtonClick(
-            e,
-            inputs,
-            setErrors,
-            inputFields,
-            validateEmail,
-            validatePassword
-          )
-        }
-      >
+      <form onSubmit={handleFormSubmit}>
         {inputFields.map((field, index) => (
           <div key={index}>
             <Input
@@ -74,7 +65,7 @@ const RegisterWidget: React.FC = () => {
         <Button
           buttonText="Создать"
           buttonStyles={styles.create_button}
-          onButtonClick={() => handleButtonClick}
+          onButtonClick={() => handleFormSubmit}
         />
       </form>
     </div>

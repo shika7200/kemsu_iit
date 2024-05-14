@@ -1,13 +1,14 @@
+// actions/handleButtonClick.ts
 import { FormEvent } from "react";
 import { InputState } from "../types";
+import validateEmail from "./validateEmail";
+import validatePassword from "./validatePassword";
 
 const handleButtonClick = (
   e: FormEvent,
   inputs: InputState,
   setErrors: React.Dispatch<React.SetStateAction<InputState>>,
   inputFields: { label: string; name: keyof InputState }[],
-  validateEmail: (email: string) => boolean,
-  validatePassword: (password: string, login: string) => boolean
 ) => {
   e.preventDefault();
 
@@ -35,6 +36,9 @@ const handleButtonClick = (
       newErrors[field.name] =
         "Пароль должен быть не менее 8 символов, содержать спецсимволы и не совпадать с логином";
       hasError = true;
+    } else if (field.name === "phone" && inputs[field.name].replace(/\D/g, "").length < 11) {
+      newErrors[field.name] = "Введите корректный номер телефона";
+      hasError = true;
     }
   }
 
@@ -47,3 +51,4 @@ const handleButtonClick = (
 };
 
 export default handleButtonClick;
+
