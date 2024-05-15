@@ -1,4 +1,4 @@
-import Forget from "@/widgets/Forget"
+import { Forget } from "@/processes"
 
 const NewPassword = () => {
   return (

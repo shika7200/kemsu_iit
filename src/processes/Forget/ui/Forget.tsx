@@ -1,8 +1,7 @@
 import React from 'react';
-import MainLayout from '@/enteties/MainLayout';
-import ForgetWidget from '@/widgets/ForgetWidget';
-import NewPassword from '@/widgets/NewPassword';
 import { handleCodeSubmit, useForget } from '../actions';
+import { ForgetWidget, NewPassword } from '@/widgets';
+import { MainLayout } from '@/enteties';
 
 
 const Forget: React.FC = () => {
