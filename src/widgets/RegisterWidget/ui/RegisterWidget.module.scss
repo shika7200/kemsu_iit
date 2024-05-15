@@ -10,7 +10,13 @@
 }
 
 .error {
-    color: red;
-    margin-top: 0.5rem;
+   
+     // Центрирование текста ошибки
+    @apply  justify-center  text-sm text-center text-red-500 mt-1
   }
-
+  
+  .img {
+    margin-top: 1rem;
+    width: 100%;
+    aspect-ratio: 0.88;
+  }
