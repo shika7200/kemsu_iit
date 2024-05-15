@@ -5,3 +5,12 @@
     @apply bg-skypurple hover:bg-skypurple_deep active:bg-skypurple_deep text-white font-bold py-2 px-4 rounded-full inline-flex items-center;
   }
  
+.div {
+  @apply flex flex-col justify-center items-center self-center px-2.5 py-5 mt-2.5 w-full text-lg border border-solid bg-neutral-100 border-stone-500 max-w-[349px] rounded-[30px]
+}
+.two_buttons {
+  @apply flex gap-5 justify-between mt-4
+}
+.img {
+  @apply self-stretch mt-7 w-full aspect-[1.03] max-w-[582spx]
+}

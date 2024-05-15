@@ -12,3 +12,8 @@ export type HeadingProps  ={
 export type  InputProps = {
   placeholder: string;
 }
+
+export type ButtonConfig = {
+    buttonText: string;
+    path: string;
+  }
