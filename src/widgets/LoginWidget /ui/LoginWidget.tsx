@@ -1,8 +1,9 @@
+import * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./Widget.module.scss";
-import { handleLoginChange, handlePasswordChange, handleFormSubmitWrapper, handleButtonClickWrapper, handleNavigation } from "../actions";
-import { imageUrl, buttonConfig } from "../config";
+import {  handleFormSubmitWrapper, handleButtonClickWrapper, handleNavigation } from "../actions";
+import { imageUrl, buttonConfig, createInputConfig } from "../config";
 import { Button, Heading, Input } from "@/shared";
 
 function LoginWidget() {
@@ -11,22 +12,22 @@ function LoginWidget() {
   const [error, setError] = useState("");
   const router = useRouter();
 
+  const inputs = createInputConfig(login, setLogin, password, setPassword, setError);
+
   return (
     <>
       <div className={styles.div}>
         <Heading text="Вход" />
         <form onSubmit={(e) => handleFormSubmitWrapper(e, login, password, setError, router)}>
-          <Input 
-            placeholder="Введите логин" 
-            value={login} 
-            onChange={(e) => handleLoginChange(e, setLogin)} 
-          />
-          <Input 
-            placeholder="Введите пароль" 
-            type="password" 
-            value={password} 
-            onChange={(e) => handlePasswordChange(e, setPassword)} 
-          />
+          {inputs.map((input, index) => (
+            <Input
+              key={index}
+              placeholder={input.placeholder}
+              type={input.type}
+              value={input.value}
+              onChange={input.onChange}
+            />
+          ))}
           {error && <p className={styles.error}>{error}</p>}
           <Button
             buttonText="Войти  →"
@@ -58,3 +59,4 @@ function LoginWidget() {
 }
 
 export default LoginWidget;
+
