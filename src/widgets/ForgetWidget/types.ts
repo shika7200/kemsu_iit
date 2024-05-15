@@ -8,3 +8,7 @@ export type ButtonConfig  ={
     buttonText: string;
     onClick: () => void;
   }
+
+export type  ForgetWidgetProps ={
+    onCodeSubmit: (email: string) => void;
+  }

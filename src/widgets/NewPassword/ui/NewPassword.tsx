@@ -1,45 +1,51 @@
 import { Button, Input } from "@/shared";
 import styles from "./NewPassword.module.scss";
 import { useState } from "react";
-import { handleSubmit } from "../actions";
+import triggerFormSubmit from "../actions/triggerFormSubmit";
 import { createInputConfig, imageUrl } from "../config";
+import { NewPasswordProps } from "../types";
+import { handleSubmitForm } from "../actions";
 
-function NewPassword() {
-  const [password, setPassword] = useState<string>('');
-  const [rpassword, setRpassword] = useState<string>('');
+const NewPassword: React.FC<NewPasswordProps> = ({ email }) => {
+  const [password, setPassword] = useState("");
+  const [rpassword, setRpassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  const inputs = createInputConfig(password, setPassword, rpassword, setRpassword, setError);
+  const inputs = createInputConfig(
+    password,
+    setPassword,
+    rpassword,
+    setRpassword,
+    setError
+  );
 
   return (
     <div className={styles.div}>
-      <form 
+      <form
         className={styles.form}
-        onSubmit={(e) => { e.preventDefault(); handleSubmit(password, rpassword, setError); }}
+        onSubmit={(e) =>
+          handleSubmitForm(e, email, password, rpassword, setError)
+        }
       >
         {inputs.map((input, index) => (
-          <Input 
+          <Input
             key={index}
-            placeholder={input.placeholder} 
-            onChange={input.onChange} 
+            placeholder={input.placeholder}
+            onChange={input.onChange}
             value={input.value}
             type="password"
           />
         ))}
-        <Button 
-          buttonText="Сменить пароль" 
-          onButtonClick={() => handleSubmit(password, rpassword, setError)} 
+        <Button
+          buttonText="Сменить пароль"
+          onButtonClick={triggerFormSubmit}
           buttonStyles={styles.create_button}
         />
         {error && <p className={styles.error}>{error}</p>}
       </form>
-      <img
-        src={imageUrl}
-        alt=""
-        className={styles.img}
-      />
+      <img src={imageUrl} alt="" className={styles.img} />
     </div>
   );
-}
+};
 
 export default NewPassword;

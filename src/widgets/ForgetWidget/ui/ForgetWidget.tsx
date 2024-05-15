@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import Button from "@/shared/Button";
-import styles from "./ForgetWidget.module.scss";
-import Input from "@/shared/Input";
-import {  handleRequestCode, handleSendCode } from "../actions";
-import { createInputConfig, createButtonConfig, imageUrl } from "../config";
+import React, { useState } from 'react';
+import Button from '@/shared/Button';
+import styles from './ForgetWidget.module.scss';
+import Input from '@/shared/Input';
+import { handleRequestCode, handleSendCode } from '../actions';
+import { createInputConfig, createButtonConfig, imageUrl } from '../config';
+import { ForgetWidgetProps } from '../types';
 
-function ForgetWidget() {
-  const [email, setEmail] = useState("");
-  const [verificationCode, setVerificationCode] = useState("");
+
+
+const ForgetWidget: React.FC<ForgetWidgetProps> = ({ onCodeSubmit }) => {
+  const [email, setEmail] = useState('');
+  const [verificationCode, setVerificationCode] = useState('');
 
   const inputs = createInputConfig(email, setEmail, verificationCode, setVerificationCode);
-  const buttons = createButtonConfig(email, verificationCode, handleRequestCode, handleSendCode);
+  const buttons = createButtonConfig(email, verificationCode, handleRequestCode, () => {
+    handleSendCode(verificationCode);
+    onCodeSubmit(email);
+  });
 
   return (
     <div className={styles.div}>
@@ -41,6 +47,6 @@ function ForgetWidget() {
       />
     </div>
   );
-}
+};
 
 export default ForgetWidget;
