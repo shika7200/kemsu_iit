@@ -12,3 +12,4 @@ export type ButtonConfig  ={
 export type  ForgetWidgetProps ={
     onCodeSubmit: (email: string) => void;
   }
+  

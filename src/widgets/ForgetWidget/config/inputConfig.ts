@@ -1,8 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { InputConfig } from "../types";
 
-
-
 const createInputConfig = (
   email: string,
   setEmail: Dispatch<SetStateAction<string>>,
