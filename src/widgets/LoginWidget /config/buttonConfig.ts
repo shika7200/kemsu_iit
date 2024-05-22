@@ -8,7 +8,7 @@ import { ButtonConfig } from "../types";
     },
     {
       buttonText: "Забыли пароль?",
-      path: "/Forget",
+      path: "/NewPassword",
     },
   ];
   

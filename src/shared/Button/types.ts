@@ -1,5 +1,6 @@
 export type ButtonProps = {
   buttonText: string;
   onButtonClick: () => void;
-  buttonStyles: string;  // Проп для дополнительных стилей
+  buttonStyles: string; 
+  disabled?: boolean; // Проп для дополнительных стилей
 }

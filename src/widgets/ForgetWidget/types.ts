@@ -7,6 +7,7 @@ export type InputConfig ={
 export type ButtonConfig  ={
     buttonText: string;
     onClick: () => void;
+    disabled?: boolean;
   }
 
 export type  ForgetWidgetProps ={

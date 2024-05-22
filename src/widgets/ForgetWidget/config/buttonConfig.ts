@@ -8,17 +8,21 @@ const createButtonConfig = (
   generatedCode: string,
   setGeneratedCode: Dispatch<SetStateAction<string>>,
   setError: Dispatch<SetStateAction<string | null>>,
-  onCodeSubmit: (email: string) => void
+  onCodeSubmit: (email: string) => void,
+  handleRequestCodeWithTimer: (email: string, setGeneratedCode: (code: string) => void) => void,
+  isRequestDisabled: boolean
 ): ButtonConfig[] => [
   {
     buttonText: "Запросить код восстановления",
-    onClick: () => handleRequestCode(email, setGeneratedCode),
+    onClick: () => handleRequestCodeWithTimer(email, setGeneratedCode),
+    disabled: isRequestDisabled,
   },
   {
     buttonText: "Отправить код восстановления",
     onClick: () => {
       handleSendCode(verificationCode, generatedCode, setError, onCodeSubmit, email);
     },
+    disabled: false,
   },
 ];
 

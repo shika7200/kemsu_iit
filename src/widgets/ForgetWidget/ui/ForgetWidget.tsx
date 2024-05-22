@@ -1,17 +1,17 @@
-import { useState } from 'react';
 import styles from './ForgetWidget.module.scss';
-import { createButtonConfig, createInputConfig, imageUrl } from '../config';
+import { imageUrl } from '../config';
 import { ForgetWidgetProps } from '../types';
 import { Input, Button } from '@/shared';
+import { useForgetWidget } from '../hooks';
 
 const ForgetWidget: React.FC<ForgetWidgetProps> = ({ onCodeSubmit }) => {
-  const [email, setEmail] = useState('');
-  const [verificationCode, setVerificationCode] = useState('');
-  const [generatedCode, setGeneratedCode] = useState('');
-  const [error, setError] = useState<string | null>(null);
-
-  const inputs = createInputConfig(email, setEmail, verificationCode, setVerificationCode);
-  const buttons = createButtonConfig(email, verificationCode, generatedCode, setGeneratedCode, setError, onCodeSubmit);
+  const {
+    inputs,
+    buttons,
+    error,
+    timer,
+    isRequestDisabled,
+  } = useForgetWidget(onCodeSubmit);
 
   return (
     <div className={styles.div}>
@@ -28,13 +28,14 @@ const ForgetWidget: React.FC<ForgetWidgetProps> = ({ onCodeSubmit }) => {
                 buttonText={buttons[index].buttonText}
                 onButtonClick={buttons[index].onClick}
                 buttonStyles={styles.button}
+                disabled={buttons[index].disabled}
               />
             )}
           </div>
         ))}
         {error && <p className={styles.error}>{error}</p>}
       </form>
-
+      {isRequestDisabled && <p className={styles.timer}>Запросить код можно будет через: {timer} секунд</p>}
       <img
         loading="lazy"
         src={imageUrl}
@@ -46,3 +47,6 @@ const ForgetWidget: React.FC<ForgetWidgetProps> = ({ onCodeSubmit }) => {
 };
 
 export default ForgetWidget;
+
+
+

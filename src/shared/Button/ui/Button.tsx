@@ -1,15 +1,12 @@
 import React from 'react';
 import { ButtonProps } from '../types';
 
-
-const Button: React.FC<ButtonProps> = ({ buttonText, onButtonClick, buttonStyles }) => {
-  // className использует класс из модуля CSS
-  // style принимает объект стилей, переданный через props
+const Button: React.FC<ButtonProps> = ({ buttonText, onButtonClick, buttonStyles, disabled }) => {
   return (
     <button
-      onClick={onButtonClick}
+      onClick={!disabled ? onButtonClick : undefined}
       className={buttonStyles} // className из вашего CSS модуля для общих стилей
-     
+      disabled={disabled} // Добавляем атрибут disabled
     >
       {buttonText}
     </button>
