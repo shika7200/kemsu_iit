@@ -19,4 +19,3 @@ const handleSendCode = (
 };
 
 export default handleSendCode;
-

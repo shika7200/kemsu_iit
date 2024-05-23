@@ -1,4 +1,4 @@
-import  handleSendCode  from './handleSendCode';
+import handleSendCode from "./handleSendCode";
 
 const handleSendCodeClick = (
   verificationCode: string,

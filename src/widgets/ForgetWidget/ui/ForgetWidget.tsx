@@ -1,17 +1,12 @@
-import styles from './ForgetWidget.module.scss';
-import { imageUrl } from '../config';
-import { ForgetWidgetProps } from '../types';
-import { Input, Button } from '@/shared';
-import { useForgetWidget } from '../hooks';
+import styles from "./ForgetWidget.module.scss";
+import { imageUrl } from "../config";
+import { ForgetWidgetProps } from "../types";
+import { Input, Button } from "@/shared";
+import { useForgetWidget } from "../hooks";
 
 const ForgetWidget: React.FC<ForgetWidgetProps> = ({ onCodeSubmit }) => {
-  const {
-    inputs,
-    buttons,
-    error,
-    timer,
-    isRequestDisabled,
-  } = useForgetWidget(onCodeSubmit);
+  const { inputs, buttons, error, timer, isRequestDisabled } =
+    useForgetWidget(onCodeSubmit);
 
   return (
     <div className={styles.div}>
@@ -35,18 +30,14 @@ const ForgetWidget: React.FC<ForgetWidgetProps> = ({ onCodeSubmit }) => {
         ))}
         {error && <p className={styles.error}>{error}</p>}
       </form>
-      {isRequestDisabled && <p className={styles.timer}>Запросить код можно будет через: {timer} секунд</p>}
-      <img
-        loading="lazy"
-        src={imageUrl}
-        alt=""
-        className={styles.img}
-      />
+      {isRequestDisabled && (
+        <p className={styles.timer}>
+          Запросить код можно будет через: {timer} секунд
+        </p>
+      )}
+      <img loading="lazy" src={imageUrl} alt="" className={styles.img} />
     </div>
   );
 };
 
 export default ForgetWidget;
-
-
-

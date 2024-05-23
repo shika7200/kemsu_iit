@@ -1,12 +1,11 @@
-// hooks/useForgetWidget.ts
-import { useState, useEffect } from 'react';
-import { handleRequestCodeWithTimer } from '../actions';
-import { createButtonConfig, createInputConfig } from '../config';
+import { useState, useEffect } from "react";
+import { handleRequestCodeWithTimer } from "../actions";
+import { createButtonConfig, createInputConfig } from "../config";
 
 const useForgetWidget = (onCodeSubmit: (email: string) => void) => {
-  const [email, setEmail] = useState('');
-  const [verificationCode, setVerificationCode] = useState('');
-  const [generatedCode, setGeneratedCode] = useState('');
+  const [email, setEmail] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
+  const [generatedCode, setGeneratedCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isRequestDisabled, setIsRequestDisabled] = useState(false);
   const [timer, setTimer] = useState(0);
@@ -27,10 +26,20 @@ const useForgetWidget = (onCodeSubmit: (email: string) => void) => {
   }, [isRequestDisabled, timer]);
 
   const handleRequestCodeWithTimerWrapper = (email: string) => {
-    handleRequestCodeWithTimer(email, setGeneratedCode, setIsRequestDisabled, setTimer);
+    handleRequestCodeWithTimer(
+      email,
+      setGeneratedCode,
+      setIsRequestDisabled,
+      setTimer
+    );
   };
 
-  const inputs = createInputConfig(email, setEmail, verificationCode, setVerificationCode);
+  const inputs = createInputConfig(
+    email,
+    setEmail,
+    verificationCode,
+    setVerificationCode
+  );
   const buttons = createButtonConfig(
     email,
     verificationCode,
@@ -52,4 +61,3 @@ const useForgetWidget = (onCodeSubmit: (email: string) => void) => {
 };
 
 export default useForgetWidget;
-

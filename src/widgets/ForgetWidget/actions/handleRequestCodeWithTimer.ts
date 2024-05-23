@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from 'react';
-import handleRequestCode from './handleRequestCode';
+import { Dispatch, SetStateAction } from "react";
+import handleRequestCode from "./handleRequestCode";
 
 const handleRequestCodeWithTimer = (
   email: string,

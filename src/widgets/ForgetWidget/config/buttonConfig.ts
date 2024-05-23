@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { handleRequestCode, handleSendCode } from "../actions";
+import {  handleSendCode } from "../actions";
 import { ButtonConfig } from "../types";
 
 const createButtonConfig = (
@@ -9,7 +9,10 @@ const createButtonConfig = (
   setGeneratedCode: Dispatch<SetStateAction<string>>,
   setError: Dispatch<SetStateAction<string | null>>,
   onCodeSubmit: (email: string) => void,
-  handleRequestCodeWithTimer: (email: string, setGeneratedCode: (code: string) => void) => void,
+  handleRequestCodeWithTimer: (
+    email: string,
+    setGeneratedCode: (code: string) => void
+  ) => void,
   isRequestDisabled: boolean
 ): ButtonConfig[] => [
   {
@@ -20,7 +23,13 @@ const createButtonConfig = (
   {
     buttonText: "Отправить код восстановления",
     onClick: () => {
-      handleSendCode(verificationCode, generatedCode, setError, onCodeSubmit, email);
+      handleSendCode(
+        verificationCode,
+        generatedCode,
+        setError,
+        onCodeSubmit,
+        email
+      );
     },
     disabled: false,
   },

@@ -10,12 +10,14 @@ const createInputConfig = (
   {
     placeholder: "Введите адрес эл. почты",
     value: email,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value),
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+      setEmail(e.target.value),
   },
   {
     placeholder: "Введите код восстановления",
     value: verificationCode,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => setVerificationCode(e.target.value),
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+      setVerificationCode(e.target.value),
   },
 ];
 
