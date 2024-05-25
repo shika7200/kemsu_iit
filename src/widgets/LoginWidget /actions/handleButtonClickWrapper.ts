@@ -8,7 +8,13 @@ const handleButtonClickWrapper = (
   setError: Dispatch<SetStateAction<string>>,
   router: NextRouter
 ) => {
-  handleFormSubmit({ preventDefault: () => {} } as React.FormEvent, login, password, setError, router);
+  handleFormSubmit(
+    { preventDefault: () => {} } as React.FormEvent,
+    login,
+    password,
+    setError,
+    router
+  );
 };
 
 export default handleButtonClickWrapper;

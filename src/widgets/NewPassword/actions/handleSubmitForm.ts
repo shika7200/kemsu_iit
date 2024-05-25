@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from 'react';
-import changePassword from './changePassword';
+import { Dispatch, SetStateAction } from "react";
+import changePassword from "./changePassword";
 
 const handleSubmitForm = (
   e: React.FormEvent<HTMLFormElement>,
