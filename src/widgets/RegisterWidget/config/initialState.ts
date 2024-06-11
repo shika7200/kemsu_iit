@@ -1,5 +1,6 @@
 import { InputState } from "../types";
 
+// initial states
 export const initialInputs: InputState = {
   firstName: "",
   lastName: "",
@@ -14,4 +15,5 @@ export const initialErrors: InputState = {
   phone: "",
   login: "",
   password: "",
+  apiError: "", // добавляем пустую строку по умолчанию
 };
