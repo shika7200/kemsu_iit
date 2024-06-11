@@ -1,24 +1,24 @@
 import * as React from "react";
-import { useState } from "react";
-import { useRouter } from "next/router";
 import styles from "./Widget.module.scss";
-import {  handleFormSubmitWrapper, handleButtonClickWrapper, handleNavigation } from "../actions";
-import { imageUrl, buttonConfig, createInputConfig } from "../config";
+import { imageUrl, buttonConfig } from "../config";
 import { Button, Heading, Input } from "@/shared";
+import { useAuth } from "../hooks";
 
 function LoginWidget() {
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const router = useRouter();
-
-  const inputs = createInputConfig(login, setLogin, password, setPassword, setError);
+  const {
+    error,
+    isLoading,
+    inputs,
+    handleSubmit,
+    handleButtonClick,
+    navigate,
+  } = useAuth();
 
   return (
     <>
       <div className={styles.div}>
         <Heading text="Вход" />
-        <form onSubmit={(e) => handleFormSubmitWrapper(e, login, password, setError, router)}>
+        <form onSubmit={handleSubmit}>
           {inputs.map((input, index) => (
             <Input
               key={index}
@@ -31,8 +31,9 @@ function LoginWidget() {
           {error && <p className={styles.error}>{error}</p>}
           <Button
             buttonText="Войти  →"
-            onButtonClick={() => handleButtonClickWrapper(login, password, setError, router)}
+            onButtonClick={handleButtonClick}
             buttonStyles={styles.enter_button}
+            disabled={isLoading}
           />
         </form>
       </div>
@@ -42,7 +43,7 @@ function LoginWidget() {
           <Button
             key={index}
             buttonText={config.buttonText}
-            onButtonClick={() => handleNavigation(router, config.path)}
+            onButtonClick={() => navigate(config.path)}
             buttonStyles={styles.purple_button}
           />
         ))}
@@ -59,4 +60,3 @@ function LoginWidget() {
 }
 
 export default LoginWidget;
-

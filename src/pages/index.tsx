@@ -7,7 +7,7 @@ export default function Home() {
 
   useEffect(() => {
     // You can include logic to determine the condition for the redirect
-    router.push('/Login');
+    router.push('/Home');
   }, []); 
 
   return <div>Загрузка...</div>;

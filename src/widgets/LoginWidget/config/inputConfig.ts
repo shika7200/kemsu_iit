@@ -8,7 +8,7 @@ const createInputConfig = (
   setError: (value: string) => void
 ): InputConfig[] => [
   {
-    placeholder: "Введите логин",
+    placeholder: "Введите почту",
     type: "text",
     value: login,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
