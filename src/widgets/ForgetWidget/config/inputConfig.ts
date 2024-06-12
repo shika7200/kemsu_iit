@@ -3,7 +3,7 @@ import { InputConfig } from "../types";
 
 const createInputConfig = (
   email: string,
-  setEmail: Dispatch<SetStateAction<string>>,
+  handleEmailChange: (newEmail: string) => void, // Обновленный тип параметра
   verificationCode: string,
   setVerificationCode: Dispatch<SetStateAction<string>>
 ): InputConfig[] => [
@@ -11,7 +11,7 @@ const createInputConfig = (
     placeholder: "Введите адрес эл. почты",
     value: email,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-      setEmail(e.target.value),
+      handleEmailChange(e.target.value), // Используем handleEmailChange
   },
   {
     placeholder: "Введите код восстановления",

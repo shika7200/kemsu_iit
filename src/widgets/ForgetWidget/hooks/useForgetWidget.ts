@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { handleRequestCodeWithTimer } from "../actions";
+import handleRequestCodeWithTimer from "../actions/handleRequestCodeWithTimer";
 import { createButtonConfig, createInputConfig } from "../config";
 
 const useForgetWidget = (onCodeSubmit: (email: string) => void) => {
@@ -25,18 +25,24 @@ const useForgetWidget = (onCodeSubmit: (email: string) => void) => {
     };
   }, [isRequestDisabled, timer]);
 
+  const handleEmailChange = (newEmail: string) => {
+    setEmail(newEmail);
+    setError(null); // Сбрасываем ошибку при изменении email
+  };
+
   const handleRequestCodeWithTimerWrapper = (email: string) => {
     handleRequestCodeWithTimer(
       email,
       setGeneratedCode,
       setIsRequestDisabled,
-      setTimer
+      setTimer,
+      setError // Передаем setError в функцию
     );
   };
 
   const inputs = createInputConfig(
     email,
-    setEmail,
+    handleEmailChange, // Используем новую функцию для изменения email
     verificationCode,
     setVerificationCode
   );
@@ -54,7 +60,7 @@ const useForgetWidget = (onCodeSubmit: (email: string) => void) => {
   return {
     inputs,
     buttons,
-    error,
+    error, // Возвращаем ошибку
     timer,
     isRequestDisabled,
   };

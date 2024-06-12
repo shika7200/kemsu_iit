@@ -10,6 +10,7 @@ const NewPassword: React.FC<NewPasswordProps> = ({ email }) => {
   const [password, setPassword] = useState("");
   const [rpassword, setRpassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const inputs = createInputConfig(
     password,
@@ -24,7 +25,7 @@ const NewPassword: React.FC<NewPasswordProps> = ({ email }) => {
       <form
         className={styles.form}
         onSubmit={(e) =>
-          handleSubmitForm(e, email, password, rpassword, setError)
+          handleSubmitForm(e, email, password, rpassword, setError, setSuccess)
         }
       >
         {inputs.map((input, index) => (
@@ -42,6 +43,7 @@ const NewPassword: React.FC<NewPasswordProps> = ({ email }) => {
           buttonStyles={styles.create_button}
         />
         {error && <p className={styles.error}>{error}</p>}
+        {success && <p className={styles.success}>{success}</p>}
       </form>
       <img src={imageUrl} alt="" className={styles.img} />
     </div>

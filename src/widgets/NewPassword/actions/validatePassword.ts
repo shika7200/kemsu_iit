@@ -1,13 +1,18 @@
-const validatePassword = (password: string): boolean => {
+const validatePassword = (password: string): string | null => {
   const minLength = 8;
   const hasNumber = /\d/;
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
 
-  return (
-    password.length >= minLength &&
-    hasNumber.test(password) &&
-    hasSpecialChar.test(password)
-  );
+  if (password.length < minLength) {
+    return "Пароль должен быть не менее 8 символов";
+  }
+  if (!hasNumber.test(password)) {
+    return "Пароль должен содержать хотя бы одну цифру";
+  }
+  if (!hasSpecialChar.test(password)) {
+    return "Пароль должен содержать хотя бы один специальный символ";
+  }
+  return null;
 };
 
 export default validatePassword;

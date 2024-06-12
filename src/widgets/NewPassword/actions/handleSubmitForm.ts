@@ -6,10 +6,11 @@ const handleSubmitForm = (
   email: string,
   password: string,
   rpassword: string,
-  setError: Dispatch<SetStateAction<string | null>>
+  setError: Dispatch<SetStateAction<string | null>>,
+  setSuccess: Dispatch<SetStateAction<string | null>>
 ): void => {
   e.preventDefault();
-  changePassword(email, password, rpassword, setError);
+  changePassword(email, password, rpassword, setError, setSuccess);
 };
 
 export default handleSubmitForm;
