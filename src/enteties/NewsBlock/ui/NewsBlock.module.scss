@@ -1,61 +1,72 @@
 .section {
   @apply flex flex-col w-full text-white bg-blue-400;
-  min-height: 100%; /* Forces section to stretch to full height */
+  min-height: 100%; /* Заставляет секцию растягиваться на всю доступную высоту */
+  border-radius: 10px; /* Добавить скругление углов для секции */
+  align-items: center; /* Центрировать содержимое по горизонтали */
 }
 
 .news_text {
-  @apply self-start ml-3 text-3xl; /* Reduced from text-4xl to text-3xl */
-  color: white; /* Make the text white */
-  font-family: 'Georgia', serif; /* Set a more formal font */
-
+  @apply text-3xl mt-3; /* Убрать ml-3 для центрирования */
+  color: white; /* Сделать текст белым */
+  font-family: 'Georgia', serif; /* Установить более формальный шрифт */
+  border-radius: 5px; /* Добавить скругление углов для заголовка */
+  text-align: center; /* Центрировать текст */
 }
 
 .article {
-  @apply flex py-4 pr-10 pl-3 w-full bg-blue-300 relative;
+  @apply flex py-4 w-full bg-blue-300 relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Space out children vertically */
-  height: 100%; /* Sets article height to 100% of parent container */
-  color: white; /* Make the text white */
-  font-family: 'Georgia', serif; /* Set a more formal font */
+  justify-content: space-between; /* Равномерно распределить содержимое по вертикали */
+  height: 100%; /* Устанавливает высоту статьи на 100% от родительского контейнера */
+  color: white; /* Сделать текст белым */
+  font-family: 'Georgia', serif; /* Установить более формальный шрифт */
+  border-bottom-left-radius: 10px; /* Скругление углов только снизу слева */
+  border-bottom-right-radius: 10px; /* Скругление углов только снизу справа */
+  padding-left: 3rem; /* Добавить отступ слева */
+  padding-right: 3rem; /* Добавить отступ справа */
 }
 
 .div_img {
   @apply flex flex-col items-center gap-5;
-  flex-grow: 1; /* Allow div_img to grow and take available space */
-  justify-content: center; /* Center contents vertically */
+  flex-grow: 1; /* Позволить div_img расти и занимать доступное пространство */
+  justify-content: center; /* Центрировать содержимое по вертикали */
+  border-radius: 10px; /* Добавить скругление углов для div_img */
 }
 
 .img {
   @apply shrink-0 border border-black border-solid cursor-pointer;
+  border-radius: 10px; /* Добавить скругление углов для изображений */
 }
 
 .img-landscape {
-  @apply w-full; /* Full width for landscape orientation */
-  aspect-ratio: 16/9; /* Aspect ratio for landscape orientation */
+  @apply w-full; /* Полная ширина для альбомной ориентации */
+  aspect-ratio: 16/9; /* Соотношение сторон для альбомной ориентации */
 }
 
 .img-portrait {
-  @apply h-72 w-auto; /* Fixed height for portrait orientation on desktop */
+  @apply h-72 w-auto; /* Фиксированная высота для портретной ориентации на рабочем столе */
 }
 
 .text_container {
-  @apply flex-1 overflow-y-auto text-lg; /* Increase text size by one level */
+  @apply flex-1 overflow-y-auto text-lg; /* Увеличить размер текста на один уровень */
   white-space: normal;
   max-height: 280px;
-  color: white; /* Make the text white */
-  font-family: 'Georgia', serif; /* Set a more formal font */
+  color: white; /* Сделать текст белым */
+  font-family: 'Georgia', serif; /* Установить более формальный шрифт */
+  border-radius: 5px; /* Добавить скругление углов для текстового контейнера */
 }
 
 .time {
-  @apply mt-2 ml-11 self-end; /* Align time to the end of the container */
-  color: white; /* Make the text white */
-  font-family: 'Georgia', serif; /* Set a more formal font */
+  @apply mt-2 ml-11 self-end ; /* Выравнивание времени по правому краю контейнера */
+  color: white; /* Сделать текст белым */
+  font-family: 'Georgia', serif; /* Установить более формальный шрифт */
+  
 }
 
 @media (max-width: 768px) {
   .article {
-    @apply flex-col;
+    @apply flex-col px-4; /* Добавить отступы слева и справа на мобильных устройствах */
   }
 
   .div_img {
@@ -67,17 +78,18 @@
   }
 
   .img-portrait {
-    @apply w-full h-auto; /* Full width and auto height for portrait orientation on mobile */
-    aspect-ratio: 3/4; /* Maintain aspect ratio on mobile */
+    @apply w-full h-auto; /* Полная ширина и авто высота для портретной ориентации на мобильных устройствах */
+    aspect-ratio: 3/4; /* Сохранить соотношение сторон на мобильных устройствах */
   }
 
   .text_container {
     @apply max-w-full;
-    max-height: 200px; /* Limit height for scrolling on mobile devices */
+    max-height: 200px; /* Ограничение высоты для прокрутки на мобильных устройствах */
   }
 
   .time {
-    @apply ml-0; /* Adjust margin-left on small screens */
+    @apply ml-0;
+    
   }
 }
 
@@ -95,8 +107,10 @@
 
 .modal_content {
   @apply relative;
+  border-radius: 10px; /* Добавить скругление углов для содержимого модального окна */
 }
 
 .modal_img {
   @apply max-w-full max-h-full;
+  border-radius: 10px; /* Добавить скругление углов для изображения в модальном окне */
 }
