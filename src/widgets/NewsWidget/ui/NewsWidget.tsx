@@ -1,3 +1,4 @@
+// src/components/NewsWidget/NewsWidget.tsx
 import React from 'react';
 import styles from './NewsWidget.module.scss';
 import useFetchNews from '../hooks/useFetchNews';
