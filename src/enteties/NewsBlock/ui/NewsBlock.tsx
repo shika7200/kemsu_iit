@@ -35,7 +35,7 @@ const NewsBlock: React.FC<NewsBlockProps> = ({ title, imgSrc, text, date, orient
             {text}
           </div>
         </div>
-        <time className="mt-2 ml-11">{date}</time>
+        <time className={styles.time}>{date}</time>
       </article>
       {isModalOpen && (
         <div className={styles.modal} onClick={handleCloseModal}>

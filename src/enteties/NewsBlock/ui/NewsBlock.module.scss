@@ -1,6 +1,6 @@
 .section {
   @apply flex flex-col w-full text-black bg-green-100;
-  min-height: 100%; /* Заставляет секцию растягиваться на всю доступную высоту */
+  min-height: 100%; /* Forces section to stretch to full height */
 }
 
 .news_text {
@@ -8,15 +8,17 @@
 }
 
 .article {
-  @apply flex py-4 pr-10 pl-3 w-full bg-blue-300;
+  @apply flex py-4 pr-10 pl-3 w-full bg-blue-300 relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Равномерное распределение содержимого */
-  height: 100%; /* Устанавливает высоту статьи на 100% от родительского контейнера */
+  justify-content: space-between; /* Space out children vertically */
+  height: 100%; /* Sets article height to 100% of parent container */
 }
 
 .div_img {
-  @apply flex gap-5;
+  @apply flex flex-col items-center gap-5;
+  flex-grow: 1; /* Allow div_img to grow and take available space */
+  justify-content: center; /* Center contents vertically */
 }
 
 .img {
@@ -24,18 +26,22 @@
 }
 
 .img-landscape {
-  @apply w-full; /* Полная ширина для альбомной ориентации */
-  aspect-ratio: 16/9; /* Соотношение сторон для альбомной ориентации */
+  @apply w-full; /* Full width for landscape orientation */
+  aspect-ratio: 16/9; /* Aspect ratio for landscape orientation */
 }
 
 .img-portrait {
-  @apply h-72 w-auto; /* Фиксированная высота для портретной ориентации */
+  @apply h-72 w-auto; /* Fixed height for portrait orientation on desktop */
 }
 
 .text_container {
   @apply flex-1 overflow-y-auto text-base;
   white-space: normal;
   max-height: 280px;
+}
+
+.time {
+  @apply mt-2 ml-11 self-end; /* Align time to the end of the container */
 }
 
 @media (max-width: 768px) {
@@ -51,9 +57,18 @@
     @apply w-full max-w-full;
   }
 
+  .img-portrait {
+    @apply w-full h-auto; /* Full width and auto height for portrait orientation on mobile */
+    aspect-ratio: 3/4; /* Maintain aspect ratio on mobile */
+  }
+
   .text_container {
     @apply max-w-full;
-    max-height: 200px; /* Ограничиваем высоту для скроллинга на мобильных устройствах */
+    max-height: 200px; /* Limit height for scrolling on mobile devices */
+  }
+
+  .time {
+    @apply ml-0; /* Adjust margin-left on small screens */
   }
 }
 
