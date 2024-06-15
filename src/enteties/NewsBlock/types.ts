@@ -6,3 +6,8 @@ export interface BlockProps {
     date: string;
   }
   
+
+  export interface NewsBlockProps extends BlockProps {
+    orientation: string;
+  }
+  

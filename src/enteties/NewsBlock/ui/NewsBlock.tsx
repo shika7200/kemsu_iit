@@ -1,23 +1,10 @@
-import React, { useState } from 'react';
-import { BlockProps } from '../types';
+import React from 'react';
+import { NewsBlockProps } from '../types';
+import { useModal } from '../hooks/useModal';
 import styles from './NewsBlock.module.scss';
 
-interface NewsBlockProps extends BlockProps {
-  orientation: string;
-}
-
 const NewsBlock: React.FC<NewsBlockProps> = ({ title, imgSrc, text, date, orientation }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleImageClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (event.target === event.currentTarget) {
-      setIsModalOpen(false);
-    }
-  };
+  const { isModalOpen, handleImageClick, handleCloseModal, closeModal } = useModal();
 
   return (
     <section className={styles.section}>
@@ -40,7 +27,7 @@ const NewsBlock: React.FC<NewsBlockProps> = ({ title, imgSrc, text, date, orient
       {isModalOpen && (
         <div className={styles.modal} onClick={handleCloseModal}>
           <div className={styles.modal_content}>
-            <img src={imgSrc} alt="" className={styles.modal_img} onClick={() => setIsModalOpen(false)} />
+            <img src={imgSrc} alt="" className={styles.modal_img} onClick={closeModal} />
           </div>
         </div>
       )}

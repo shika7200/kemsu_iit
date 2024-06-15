@@ -32,6 +32,7 @@
   flex-grow: 1; /* Позволить div_img расти и занимать доступное пространство */
   justify-content: center; /* Центрировать содержимое по вертикали */
   border-radius: 10px; /* Добавить скругление углов для div_img */
+  overflow: hidden; /* Скрыть переполнение */
 }
 
 .img {
@@ -58,10 +59,9 @@
 }
 
 .time {
-  @apply mt-2 ml-11 self-end ; /* Выравнивание времени по правому краю контейнера */
+  @apply mt-2 ml-11 self-end; /* Выравнивание времени по правому краю контейнера */
   color: white; /* Сделать текст белым */
   font-family: 'Georgia', serif; /* Установить более формальный шрифт */
-  
 }
 
 @media (max-width: 768px) {
@@ -89,7 +89,6 @@
 
   .time {
     @apply ml-0;
-    
   }
 }
 
@@ -106,11 +105,11 @@
 }
 
 .modal_content {
-  @apply relative;
+  @apply relative max-w-full max-h-full overflow-auto; /* Контейнер для изображения с прокруткой */
   border-radius: 10px; /* Добавить скругление углов для содержимого модального окна */
 }
 
 .modal_img {
-  @apply max-w-full max-h-full;
+  @apply w-full h-auto max-w-full max-h-full; /* Изменить размер изображения под размер контейнера */
   border-radius: 10px; /* Добавить скругление углов для изображения в модальном окне */
 }
