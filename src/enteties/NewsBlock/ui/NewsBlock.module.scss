@@ -1,79 +1,78 @@
 .section {
-    @apply flex flex-col w-full text-black bg-green-100;
-  }
-  
-  .news_text {
-    @apply self-start ml-3 text-4xl;
-  }
-  
+  @apply flex flex-col w-full text-black bg-green-100;
+  min-height: 100%; /* Заставляет секцию растягиваться на всю доступную высоту */
+}
+
+.news_text {
+  @apply self-start ml-3 text-4xl;
+}
+
+.article {
+  @apply flex py-4 pr-10 pl-3 w-full bg-blue-300;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Равномерное распределение содержимого */
+  height: 100%; /* Устанавливает высоту статьи на 100% от родительского контейнера */
+}
+
+.div_img {
+  @apply flex gap-5;
+}
+
+.img {
+  @apply shrink-0 border border-black border-solid cursor-pointer;
+}
+
+.img-landscape {
+  @apply w-full; /* Полная ширина для альбомной ориентации */
+  aspect-ratio: 16/9; /* Соотношение сторон для альбомной ориентации */
+}
+
+.img-portrait {
+  @apply h-72 w-auto; /* Фиксированная высота для портретной ориентации */
+}
+
+.text_container {
+  @apply flex-1 overflow-y-auto text-base;
+  white-space: normal;
+  max-height: 280px;
+}
+
+@media (max-width: 768px) {
   .article {
-    @apply flex py-4 pr-10 pl-3 w-full bg-blue-300;
-    display: flex;
-    flex-direction: column;
+    @apply flex-col;
   }
-  
+
   .div_img {
-    @apply flex gap-5;
-  }
-  
-  .img {
-    @apply shrink-0 border border-black border-solid cursor-pointer;
-  }
-  
-  .img-landscape {
-    @apply w-full; /* Полная ширина для альбомной ориентации */
-    aspect-ratio: 16/9; /* Соотношение сторон для альбомной ориентации */
-  }
-  
-  .img-portrait {
-    @apply h-72 w-auto; /* Фиксированная высота для портретной ориентации */
-  }
-  
-  .text_container {
-    @apply flex-1 overflow-y-auto text-base;
-    white-space: normal;
-    max-height: 280px;
-  }
-  
-  /* Медиа-запрос для мобильных устройств */
-  @media (max-width: 768px) {
-    .article {
-      @apply flex-col;
-    }
-  
-    .div_img {
-      @apply flex-col items-center w-full;
-    }
-  
-    .img {
-      @apply w-full max-w-full;
-    }
-  
-    .text_container {
-      @apply max-w-full;
-      max-height: 200px; /* Ограничиваем высоту для скроллинга на мобильных устройствах */
-    }
-  }
-  
-  /* Дополнительные стили для альбомной ориентации */
-  .landscape .div_img {
     @apply flex-col items-center w-full;
   }
-  
-  .landscape .img {
+
+  .img {
     @apply w-full max-w-full;
   }
-  
-  /* Стили для модального окна */
-  .modal {
-    @apply fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50;
+
+  .text_container {
+    @apply max-w-full;
+    max-height: 200px; /* Ограничиваем высоту для скроллинга на мобильных устройствах */
   }
-  
-  .modal_content {
-    @apply relative;
-  }
-  
-  .modal_img {
-    @apply max-w-full max-h-full;
-  }
-  
+}
+
+.landscape .div_img {
+  @apply flex-col items-center w-full;
+}
+
+.landscape .img {
+  @apply w-full max-w-full;
+}
+
+.modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50;
+}
+
+.modal_content {
+  @apply relative;
+}
+
+.modal_img {
+  @apply max-w-full max-h-full;
+}
