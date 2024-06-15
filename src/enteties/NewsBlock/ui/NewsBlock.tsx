@@ -21,7 +21,7 @@ const NewsBlock: React.FC<NewsBlockProps> = ({ title, imgSrc, text, date, orient
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.news_text}>{title}</h2>
+      <h4 className={styles.news_text}>{title}</h4>
       <article className={`${styles.article} ${orientation === 'landscape' ? styles.landscape : ''}`}>
         <div className={styles.div_img}>
           <img

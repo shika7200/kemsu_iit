@@ -1,10 +1,13 @@
 .section {
-  @apply flex flex-col w-full text-black bg-green-100;
+  @apply flex flex-col w-full text-white bg-blue-400;
   min-height: 100%; /* Forces section to stretch to full height */
 }
 
 .news_text {
-  @apply self-start ml-3 text-4xl;
+  @apply self-start ml-3 text-3xl; /* Reduced from text-4xl to text-3xl */
+  color: white; /* Make the text white */
+  font-family: 'Georgia', serif; /* Set a more formal font */
+
 }
 
 .article {
@@ -13,6 +16,8 @@
   flex-direction: column;
   justify-content: space-between; /* Space out children vertically */
   height: 100%; /* Sets article height to 100% of parent container */
+  color: white; /* Make the text white */
+  font-family: 'Georgia', serif; /* Set a more formal font */
 }
 
 .div_img {
@@ -35,13 +40,17 @@
 }
 
 .text_container {
-  @apply flex-1 overflow-y-auto text-base;
+  @apply flex-1 overflow-y-auto text-lg; /* Increase text size by one level */
   white-space: normal;
   max-height: 280px;
+  color: white; /* Make the text white */
+  font-family: 'Georgia', serif; /* Set a more formal font */
 }
 
 .time {
   @apply mt-2 ml-11 self-end; /* Align time to the end of the container */
+  color: white; /* Make the text white */
+  font-family: 'Georgia', serif; /* Set a more formal font */
 }
 
 @media (max-width: 768px) {
