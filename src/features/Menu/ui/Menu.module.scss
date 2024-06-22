@@ -1,0 +1,21 @@
+/* Menu.module.scss */
+.nav {
+    @apply flex gap-5 self-center  mt-3 rounded-2xl bg-stone-300;
+  }
+  
+  .menuTitle {
+    @apply flex-auto my-auto text-5xl font-semibold text-center text-black;
+  }
+  
+  .menuIcon {
+    @apply flex flex-col px-4 py-5 rounded-2xl bg-stone-300 h-[75px] w-[75px];
+  }
+  
+  .menuIconLine {
+    @apply shrink-0 shadow-sm bg-blue-700 bg-opacity-50 h-[5px] rounded-[40px];
+  }
+  
+  .menuIconLine + .menuIconLine {
+    @apply mt-2.5;
+  }
+  

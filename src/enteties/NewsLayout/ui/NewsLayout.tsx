@@ -1,13 +1,14 @@
 import { Footer, Header } from "@/ui";
 import styles from "./NewsLayout.module.scss";
-import { Menu } from "@/features";
+import { MenuWidget } from "@/widgets";
+
 
 
 const NewsLayout: React.FC<NewsLayoutProps> = ({ children }) => {
     return (
       <div className={styles.layout}>
         <Header />
-        <Menu />
+        <MenuWidget />
         <main className={styles.main}>{children}</main>
         <Footer />
       </div>

@@ -2,7 +2,8 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import jwt from 'jsonwebtoken';
-import { refreshToken } from './auth'; // Исправляем путь
+import refreshToken from './auth';
+
 
 const api = axios.create({
   baseURL: 'https://mats-kemsu.pockethost.io',

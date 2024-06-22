@@ -1,0 +1,106 @@
+/* MenuWidget.module.scss */
+.main {
+    @apply flex flex-col justify-center mx-auto w-full text-4xl text-center text-black max-w-[480px];
+  }
+  
+  .nav {
+    @apply flex flex-col px-4 pt-3 pb-3 w-full rounded-2xl bg-indigo-500 bg-opacity-50 border-4 border-blue-500;
+    margin-bottom: 10px; /* Добавим немного пространства снизу */
+  }
+  
+  .logoutButton {
+    @apply justify-center px-3 py-3 text-3xl bg-red-500 text-white rounded-3xl;
+    @media (max-width: 767px) {
+      @apply text-lg p-3; /* Уменьшаем шрифт и отступы на мобильных устройствах, но не слишком сильно */
+    }
+  }
+  
+  .cancelButton {
+    @apply justify-center px-3 py-3 mt-4 text-3xl bg-white text-black border border-gray-300 rounded-3xl;
+    @media (max-width: 767px) {
+      @apply text-lg p-3; /* Уменьшаем шрифт и отступы на мобильных устройствах, но не слишком сильно */
+    }
+  }
+  
+  .logoutConfirmButton {
+    @apply justify-center px-3 py-3 mt-4 text-3xl bg-red-500 text-white rounded-3xl;
+    @media (max-width: 767px) {
+      @apply text-lg p-3; /* Уменьшаем шрифт и отступы на мобильных устройствах, но не слишком сильно */
+    }
+  }
+  
+  .popupOverlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out;
+    opacity: 0;
+  }
+  
+  .popupOverlayOpen {
+    opacity: 1;
+  }
+  
+  .popup {
+    @apply relative p-8 transition-opacity duration-500 ease-in-out;
+    opacity: 0;
+  }
+  
+  .popupOpen {
+    opacity: 1;
+  }
+  
+  .closeButton {
+    @apply absolute top-2 left-1/2 transform -translate-x-1/2 bg-blue-200 text-white rounded-full text-3xl cursor-pointer px-4 py-2;
+    border: 2px solid rgba(70, 130, 180, 0.5); /* Полупрозрачная синяя обводка */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background-color: white;
+    }
+  
+    &::before {
+      transform: rotate(45deg);
+    }
+  
+    &::after {
+      transform: rotate(-45deg);
+    }
+  
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  
+  .menu {
+    @apply flex gap-5 self-center pl-20 mt-6 rounded-2xl bg-stone-300 transition-opacity duration-500 ease-in-out;
+  }
+  
+  .menuHidden {
+    opacity: 0;
+  }
+  
+  .menuItem {
+    @apply w-full text-center transition-opacity duration-500 ease-in-out break-words;
+    opacity: 0;
+    border: 1px solid blue;
+    margin-bottom: -1px; /* уменьшить расстояние между элементами списка */
+    @media (max-width: 767px) {
+      @apply text-lg p-3; /* Уменьшаем шрифт и отступы на мобильных устройствах, но не слишком сильно */
+    }
+  }
+  
+  .menuItemOpen {
+    opacity: 1;
+  }
+  
+  .confirmationText {
+    @apply text-center text-2xl mb-4 text-white;
+  }
+  
