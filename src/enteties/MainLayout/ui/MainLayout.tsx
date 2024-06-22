@@ -1,4 +1,4 @@
-import Footer from "@/shared/Footer";
+import Footer from "@/ui/Footer";
 import Header from "@/ui/Header";
 import styles from "./MainLayout.module.scss"
 import { MainLayoutProps } from "../types";

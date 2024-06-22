@@ -1,6 +1,6 @@
-import { Header } from "@/ui";
+import { Footer, Header } from "@/ui";
 import styles from "./NewsLayout.module.scss";
-import { Footer, Menu } from "@/shared";
+import { Menu } from "@/features";
 
 
 const NewsLayout: React.FC<NewsLayoutProps> = ({ children }) => {
