@@ -23,7 +23,7 @@ export const menuItems: MenuItemProps[] = [
     className: "px-12 py-6",
     href: "/Employees",
   },
-
+  
   {
     text: "Новости",
     className: "items-center px-16 py-7",

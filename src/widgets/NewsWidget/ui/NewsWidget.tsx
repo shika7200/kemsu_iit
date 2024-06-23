@@ -1,19 +1,25 @@
-// src/components/NewsWidget/NewsWidget.tsx
-import React from 'react';
 import styles from './NewsWidget.module.scss';
-import useFetchNews from '../hooks/useFetchNews';
-import NewsBlock from '@/enteties/NewsBlock/ui/NewsBlock';
+import { NewsBlock } from '@/enteties';
+import useFetchNews from '../hooks';
+
 
 const NewsWidget: React.FC = () => {
   const { news, loading, error } = useFetchNews();
 
   if (loading) {
-    return <div>Загрузка...</div>;
+    return (
+      <div className={styles.main}>
+    <p>Загрузка...</p>
+    </div>);
   }
 
   if (error) {
     console.error("Error in NewsWidget component:", error);
-    return <div>Ошибка загрузки новостей</div>;
+    return (
+      <div className={styles.main}>
+    <p>Ошибка загрузки новостей</p>
+    </div>
+    );
   }
 
   console.log("Rendering NewsWidget with news:", news);

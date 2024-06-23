@@ -1,4 +1,4 @@
-interface NewsLayoutProps {
+type GridLayoutProps = {
     children: React.ReactNode;
   }
   

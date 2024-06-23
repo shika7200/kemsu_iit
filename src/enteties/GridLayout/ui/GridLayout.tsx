@@ -1,10 +1,10 @@
 import { Footer, Header } from "@/ui";
-import styles from "./NewsLayout.module.scss";
+import styles from "./GridLayout.module.scss";
 import { MenuWidget } from "@/widgets";
 
 
 
-const NewsLayout: React.FC<NewsLayoutProps> = ({ children }) => {
+const GridLayout: React.FC<GridLayoutProps> = ({ children }) => {
     return (
       <div className={styles.layout}>
         <Header />
@@ -15,4 +15,4 @@ const NewsLayout: React.FC<NewsLayoutProps> = ({ children }) => {
     );
   };
   
-  export default NewsLayout;
+  export default GridLayout;

@@ -1,5 +1,5 @@
-// src/shared/types/BlockProps.ts
-export interface BlockProps {
+
+type BlockProps = {
     title: string;
     imgSrc: string;
     text: string;

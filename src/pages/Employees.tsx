@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import { GridLayout } from '@/enteties';
-import { NewsWidget } from '@/widgets';
+import { ProfsWidget } from '@/widgets';
 
 export const getStaticProps: GetStaticProps = async () => {
   // Этот код выполняется на сервере и предварительно загружает данные для NewsWidget
@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const News: React.FC = () => (
   <GridLayout>
-    <NewsWidget />
+    <ProfsWidget/>
   </GridLayout>
 );
 

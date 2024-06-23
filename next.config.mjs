@@ -4,6 +4,9 @@ const nextConfig = {
   env: {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
   },
+  images: {
+    domains: ['mats-kemsu.pockethost.io'],
+  },
 };
 
 export default nextConfig;

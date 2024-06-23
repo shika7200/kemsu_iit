@@ -1,2 +1,3 @@
-import  useFetchNews  from "./useFetchNews";
+import useFetchNews from "./useFetchNews";
+
 export default useFetchNews;
