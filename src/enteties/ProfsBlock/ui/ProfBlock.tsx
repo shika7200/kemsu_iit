@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
-
+/* eslint-disable @next/next/no-img-element */
 import { useModal } from '../hooks/useModal';
 import styles from './ProfBlock.module.scss';
 
 const ProfBlock: React.FC<ProfBlockProps> = ({ avatar, surname, name, fathername, status, phone, mail, description, orientation, isAuthorized }) => {
-  const { isModalOpen, handleImageClick, handleCloseModal, closeModal } = useModal();
-  const [isDescriptionModalOpen, setDescriptionModalOpen] = useState(false);
-
-  const handleDescriptionClick = () => {
-    setDescriptionModalOpen(true);
-  };
-
-  const handleCloseDescriptionModal = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (event.target === event.currentTarget) {
-      setDescriptionModalOpen(false);
-    }
-  };
+  const {
+    isModalOpen,
+    handleImageClick,
+    handleCloseModal,
+    closeModal,
+    isDescriptionModalOpen,
+    handleDescriptionClick,
+    handleCloseDescriptionModal,
+    closeDescriptionModal
+  } = useModal();
 
   return (
     <section className={styles.section}>
@@ -54,7 +51,7 @@ const ProfBlock: React.FC<ProfBlockProps> = ({ avatar, surname, name, fathername
             <div className={styles.modal_text}>
               <p>{description}</p>
             </div>
-            <button className={styles.close_button} onClick={() => setDescriptionModalOpen(false)}>Закрыть</button>
+            <button className={styles.close_button} onClick={closeDescriptionModal}>Закрыть</button>
           </div>
         </div>
       )}
