@@ -79,7 +79,8 @@
 .modal_content {
   @apply relative max-w-full max-h-full overflow-auto;
   border-radius: 10px;
-  background: rgba(37, 99, 235, 0.2); /* 20% прозрачный с цветом border-blue-600 */
+  background: #60a5fa; /* bg-blue-300 */
+  border: 2px solid #2563eb; /* bg-blue-600 */
   color: white;
   padding: 20px;
   display: flex;
