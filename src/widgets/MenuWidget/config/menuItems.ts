@@ -7,10 +7,10 @@ export const menuItemsAuth: MenuItemProps[] = [
     className: "px-7 pt-2",
     href: "/Materials",
   },
-  { text: "Примеры заявлений", className: "px-16 py-2 ", href: "/Еxamples" },
+  { text: "Примеры заявлений", className: "px-16 py-2 ", href: "https://disk.yandex.ru/d/gi2zRKoCmKI98Q " },
   { text: "Направления подготовки", className: "px-16 py-2 ", href: "/Roots" },
   { text: "Студенческая жизнь", className: "px-9 py-2", href: "https://kemsu.ru/life/student-organizations/" },
-  { text: "Контакты", className: "items-center px-16 py-7", href: "https://kemsu.ru/abiturient/progress-campaign/contacts/" },
+  { text: "Контакты", className: "items-center px-16 py-7", href: "/Contacts" },
 ];
 
 export const menuItems: MenuItemProps[] = [
@@ -30,5 +30,5 @@ export const menuItems: MenuItemProps[] = [
     className: "items-center px-16 py-7",
     href: "/News",
   },
-  { text: "Контакты", className: "items-center px-16 py-7", href: "https://kemsu.ru/abiturient/progress-campaign/contacts/" },
+  { text: "Контакты", className: "items-center px-16 py-7", href: "/Contacts" },
 ];
