@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import jwt from 'jsonwebtoken';
-import refreshToken from '../utils/auth';
+import {refreshToken} from '../utils/auth';
 
 
 const useAuth = () => {
