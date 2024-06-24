@@ -3,3 +3,5 @@ export { default as NewPassword } from './NewPassword';
 export { default as MenuWidget } from './MenuWidget';
 export {default as NewsWidget} from './NewsWidget';
 export {default as ProfsWidget} from './ProfsWidget';
+export {default as MaterialsWidget} from './MaterialsWidget';
+export {default as DirectionWidget} from './DirectionWidget';

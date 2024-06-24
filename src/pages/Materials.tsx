@@ -1,6 +1,7 @@
 import { MainLayout } from '@/enteties'
-import MaterialsWidget from '@/widgets/MaterialsWidget'
-import React from 'react'
+import { MaterialsWidget } from '@/widgets'
+
+
 
 const Materials = () => {
   return (
