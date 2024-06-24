@@ -38,7 +38,7 @@ const ProfsWidget: React.FC = () => {
           mail={prof.mail}
           description={prof.description}
           orientation={prof.orientation}
-          isAuthorized={isAuthorized} // Передаем информацию об авторизации
+          isAuthorized={isAuthorized} 
         />
       ))}
     </div>

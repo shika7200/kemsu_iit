@@ -23,7 +23,7 @@ const getImageOrientation = async (imgSrc: string): Promise<string> => {
 
 export const fetchProfs = async () => {
   try {
-    // Выполняем авторизацию
+    
     await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tlNh26');
 
     const records = await pb.collection('profs').getFullList({
@@ -39,7 +39,7 @@ export const fetchProfs = async () => {
       })
     );
 
-    console.log('Fetched profs with orientation:', profsWithOrientation); // Логируем данные
+   
     return profsWithOrientation;
   } catch (error) {
     console.error('Error fetching profs:', error); // Логируем ошибку

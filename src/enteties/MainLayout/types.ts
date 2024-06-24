@@ -1,3 +1,3 @@
-export type MainLayoutProps = {
+ type MainLayoutProps = {
     children: React.ReactNode; // Принимает любой React компонент
   };

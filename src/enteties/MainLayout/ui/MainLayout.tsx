@@ -1,15 +1,17 @@
-import Footer from "@/ui/Footer";
-import Header from "@/ui/Header";
 import styles from "./MainLayout.module.scss"
-import { MainLayoutProps } from "../types";
+import { MenuWidget } from "@/widgets";
+import { Footer, Header } from "@/ui";
+
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     return (
-        <>
+        
+        <div className={styles.layout}>
         <Header />
+        <MenuWidget />
         <main className={styles.main}>{children}</main>
         <Footer />
-      </>
+        </div>
     );
   };
   
