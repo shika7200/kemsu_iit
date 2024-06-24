@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useModal } from '../hooks/useModal';
+import { ProfBlockProps } from '../types';
 import styles from './ProfBlock.module.scss';
 
 const ProfBlock: React.FC<ProfBlockProps> = ({ avatar, surname, name, fathername, status, phone, mail, description, orientation, isAuthorized }) => {

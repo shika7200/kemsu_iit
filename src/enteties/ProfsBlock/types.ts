@@ -1,4 +1,4 @@
-type ProfProps = {
+export type ProfProps = {
   
     avatar: string;
     surname: string;
@@ -10,7 +10,7 @@ type ProfProps = {
     description: string;
   }
   
-  type ProfBlockProps = ProfProps & {
+ export  type ProfBlockProps = ProfProps & {
     orientation: string;
     isAuthorized: boolean; 
   }
