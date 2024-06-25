@@ -1,0 +1,21 @@
+.container {
+    @apply p-5 bg-blue-400 rounded-lg;
+  }
+  
+  .title {
+    @apply text-2xl mb-4 text-center text-white;
+  }
+  
+  .subtitle {
+    @apply text-xl mb-2 mt-4 text-white;
+  }
+  
+  .list {
+    @apply list-none p-0;
+  }
+  
+  .item {
+    @apply text-lg text-white no-underline hover:bg-blue-500 focus:bg-blue-500 cursor-pointer;
+    transition: background-color 0.3s;
+  }
+  

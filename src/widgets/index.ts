@@ -6,3 +6,4 @@ export {default as ProfsWidget} from './ProfsWidget';
 export {default as MaterialsWidget} from './MaterialsWidget';
 export {default as DirectionWidget} from './DirectionWidget';
 export {default as HomePage} from './HomePage';
+export {default as SimpleDirectionWidget} from './SimpleDirectionWidget';

@@ -1,5 +1,6 @@
 import PocketBase from 'pocketbase';
-import { Direction } from '../types';
+import { Direction } from './types';
+
 
 const pb = new PocketBase('https://mats-kemsu.pockethost.io');
 pb.autoCancellation(false);
@@ -7,7 +8,7 @@ pb.autoCancellation(false);
 const CACHE_KEY = 'directions_cache';
 const CACHE_DURATION = 30 * 60 * 1000; // 30 минут в миллисекундах
 
-export const fetchDirections = async (): Promise<Direction[]> => {
+ const fetchDirections = async (): Promise<Direction[]> => {
   // Проверка наличия кэша
   const cachedData = localStorage.getItem(CACHE_KEY);
   if (cachedData) {
@@ -22,7 +23,7 @@ export const fetchDirections = async (): Promise<Direction[]> => {
 
   // Если кэша нет или он устарел, загружаем данные заново
   try {
-    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tINh26!!');
+ 
     const result = await pb.collection('materials').getList(1, 50, {
       filter: 'created >= "2022-01-01 00:00:00"',
       sort: '-created',
@@ -51,3 +52,4 @@ export const fetchDirections = async (): Promise<Direction[]> => {
     return [];
   }
 };
+export default fetchDirections;

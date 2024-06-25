@@ -1,0 +1,33 @@
+.blockItem {
+    @apply mb-2;
+  }
+  
+  .blockLink {
+    @apply text-lg text-white no-underline hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white cursor-pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .modalOverlay {
+    @apply fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50 text-white;
+  }
+  
+  .modal {
+    @apply relative bg-white p-5 rounded-lg shadow-lg flex flex-col bg-blue-300;
+    width: 90%;
+    max-height: 80%;
+  }
+  
+  .modalContent {
+    @apply overflow-y-auto flex-grow text-white;
+    max-height: 60vh;
+  }
+  
+  .closeButton {
+    @apply mt-4 p-2 bg-blue-500 text-white rounded;
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+  }
+  

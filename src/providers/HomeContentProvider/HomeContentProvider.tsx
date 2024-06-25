@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { fetchHomeContent, fetchNews, fetchProfs, fetchContacts } from '@/enteties';  // Добавлен импорт fetchContacts
-import { Home, NewsBlockProps, Prof, Contact } from '@/enteties/Home/model/types';
+import { fetchHomeContent, fetchNews, fetchProfs, fetchContacts, fetchDirections } from '@/enteties';
 import { HomeContentContextProps, HomeContentProviderProps } from './types';
+import { Contact, Direction, Home, NewsBlockProps, Prof } from '@/enteties/Home/model/types';
 
 const HomeContentContext = createContext<HomeContentContextProps | undefined>(undefined);
 
@@ -9,7 +9,8 @@ export const HomeContentProvider: React.FC<HomeContentProviderProps> = ({ childr
   const [homeContent, setHomeContent] = useState<Home[]>([]);
   const [profs, setProfs] = useState<Prof[]>([]);
   const [news, setNews] = useState<NewsBlockProps[]>([]);
-  const [contacts, setContacts] = useState<Contact[]>([]);  // Добавлено состояние для контактов
+  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [directions, setDirections] = useState<Direction[]>([]);
 
   const fetchHomeContentCallback = useCallback(async () => {
     const fetchedHomeContent = await fetchHomeContent();
@@ -29,23 +30,42 @@ export const HomeContentProvider: React.FC<HomeContentProviderProps> = ({ childr
   const fetchContactsCallback = useCallback(async () => {
     try {
       const fetchedContacts = await fetchContacts();
-      console.log(fetchedContacts);  // Проверьте, что данные приходят
       setContacts(fetchedContacts);
     } catch (error) {
       console.error('Ошибка при загрузке контактов:', error);
     }
   }, []);
-  
+
+  const fetchDirectionsCallback = useCallback(async () => {
+    try {
+      const fetchedDirections = await fetchDirections();
+      setDirections(fetchedDirections);
+    } catch (error) {
+      console.error('Ошибка при загрузке направлений:', error);
+    }
+  }, []);
 
   useEffect(() => {
     fetchHomeContentCallback();
     fetchProfsCallback();
     fetchNewsCallback();
     fetchContactsCallback();
-  }, [fetchHomeContentCallback, fetchProfsCallback, fetchNewsCallback, fetchContactsCallback]);
+    fetchDirectionsCallback();
+  }, [fetchHomeContentCallback, fetchProfsCallback, fetchNewsCallback, fetchContactsCallback, fetchDirectionsCallback]);
 
   return (
-    <HomeContentContext.Provider value={{ homeContent, profs, news, contacts, fetchHomeContent: fetchHomeContentCallback, fetchProfs: fetchProfsCallback, fetchNews: fetchNewsCallback, fetchContacts: fetchContactsCallback }}>
+    <HomeContentContext.Provider value={{
+      homeContent,
+      profs,
+      news,
+      contacts,
+      directions,
+      fetchHomeContent: fetchHomeContentCallback,
+      fetchProfs: fetchProfsCallback,
+      fetchNews: fetchNewsCallback,
+      fetchContacts: fetchContactsCallback,
+      fetchDirections: fetchDirectionsCallback
+    }}>
       {children}
     </HomeContentContext.Provider>
   );

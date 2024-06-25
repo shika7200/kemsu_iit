@@ -1,7 +1,7 @@
-import React from 'react';
 import styles from './DirectionWidget.module.scss';
 import { useDirection } from '../hooks';
-import { Direction } from '../types';
+import { DirectionBlock } from '@/enteties';
+
 
 const DirectionWidget: React.FC = () => {
   const {
@@ -23,41 +23,30 @@ const DirectionWidget: React.FC = () => {
       </a>
       <h2 className={styles.subtitle}>Бакалавриат</h2>
       <ul className={styles.list}>
-        {bachelors.map((direction: Direction) => (
-          <li key={direction.id} className={styles.item}>
-            <div
-              onClick={() => handleDescriptionClick(direction)}
-              className={styles.link}
-            >
-              {direction.direction}
-            </div>
-          </li>
+        {bachelors.map((direction) => (
+          <DirectionBlock
+            key={direction.id}
+            direction={direction}
+            onDescriptionClick={handleDescriptionClick}
+            isModalOpen={isModalOpen}
+            closeModal={handleCloseModal}
+            selectedDirection={selectedDirection}
+          />
         ))}
       </ul>
       <h2 className={styles.subtitle}>Магистратура</h2>
       <ul className={styles.list}>
-        {masters.map((direction: Direction) => (
-          <li key={direction.id} className={styles.item}>
-            <div
-              onClick={() => handleDescriptionClick(direction)}
-              className={styles.link}
-            >
-              {direction.direction}
-            </div>
-          </li>
+        {masters.map((direction) => (
+          <DirectionBlock
+            key={direction.id}
+            direction={direction}
+            onDescriptionClick={handleDescriptionClick}
+            isModalOpen={isModalOpen}
+            closeModal={handleCloseModal}
+            selectedDirection={selectedDirection}
+          />
         ))}
       </ul>
-      {isModalOpen && selectedDirection && (
-        <div className={styles.modalOverlay} onClick={handleCloseModal}>
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedDirection.direction}</h2>
-            <div className={styles.modalContent}>
-              <p>{selectedDirection.description}</p>
-            </div>
-            <button className={styles.closeButton} onClick={handleCloseModal}>Закрыть</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

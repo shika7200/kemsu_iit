@@ -1,4 +1,4 @@
-export interface Direction {
+export type Direction ={
     id: string;
     collectionId: string;
     collectionName: string;
