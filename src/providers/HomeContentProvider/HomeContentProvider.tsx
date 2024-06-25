@@ -1,18 +1,15 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { fetchHomeContent, fetchNews, fetchProfs } from '@/enteties';
-import { Home, NewsBlockProps, Prof } from '@/enteties/Home/model/types';
+import { fetchHomeContent, fetchNews, fetchProfs, fetchContacts } from '@/enteties';  // Добавлен импорт fetchContacts
+import { Home, NewsBlockProps, Prof, Contact } from '@/enteties/Home/model/types';
 import { HomeContentContextProps, HomeContentProviderProps } from './types';
 
-
 const HomeContentContext = createContext<HomeContentContextProps | undefined>(undefined);
-
-
-
 
 export const HomeContentProvider: React.FC<HomeContentProviderProps> = ({ children }) => {
   const [homeContent, setHomeContent] = useState<Home[]>([]);
   const [profs, setProfs] = useState<Prof[]>([]);
   const [news, setNews] = useState<NewsBlockProps[]>([]);
+  const [contacts, setContacts] = useState<Contact[]>([]);  // Добавлено состояние для контактов
 
   const fetchHomeContentCallback = useCallback(async () => {
     const fetchedHomeContent = await fetchHomeContent();
@@ -29,14 +26,26 @@ export const HomeContentProvider: React.FC<HomeContentProviderProps> = ({ childr
     setNews(fetchedNews);
   }, []);
 
+  const fetchContactsCallback = useCallback(async () => {
+    try {
+      const fetchedContacts = await fetchContacts();
+      console.log(fetchedContacts);  // Проверьте, что данные приходят
+      setContacts(fetchedContacts);
+    } catch (error) {
+      console.error('Ошибка при загрузке контактов:', error);
+    }
+  }, []);
+  
+
   useEffect(() => {
     fetchHomeContentCallback();
     fetchProfsCallback();
     fetchNewsCallback();
-  }, [fetchHomeContentCallback, fetchProfsCallback, fetchNewsCallback]);
+    fetchContactsCallback();
+  }, [fetchHomeContentCallback, fetchProfsCallback, fetchNewsCallback, fetchContactsCallback]);
 
   return (
-    <HomeContentContext.Provider value={{ homeContent, profs, news, fetchHomeContent: fetchHomeContentCallback, fetchProfs: fetchProfsCallback, fetchNews: fetchNewsCallback }}>
+    <HomeContentContext.Provider value={{ homeContent, profs, news, contacts, fetchHomeContent: fetchHomeContentCallback, fetchProfs: fetchProfsCallback, fetchNews: fetchNewsCallback, fetchContacts: fetchContactsCallback }}>
       {children}
     </HomeContentContext.Provider>
   );

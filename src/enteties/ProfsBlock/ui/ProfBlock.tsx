@@ -28,7 +28,7 @@ const ProfBlock: React.FC<ProfBlockProps> = ({ avatar, surname, name, fathername
             onClick={handleImageClick}
           />
           <div className={styles.text_container}>
-            <p>Звание: {status}</p>
+            <p>Должность: {status}</p>
             {isAuthorized && (
               <>
                 <p>Телефон: <a href={`tel:${phone}`} className={styles.link}>{phone}</a></p>

@@ -1,0 +1,16 @@
+.contact {
+    @apply mb-4 p-4 bg-white rounded shadow-md;
+  }
+  
+  .contact h3 {
+    @apply text-xl mb-2;
+  }
+  
+  .contact p {
+    @apply text-lg;
+  }
+  
+  .contact a {
+    @apply text-blue-500 hover:text-blue-700;
+  }
+  

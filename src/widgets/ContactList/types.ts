@@ -1,4 +1,4 @@
-export interface Contact {
+export type Contact  ={
     id: string;
     collectionId: string;
     collectionName: string;
