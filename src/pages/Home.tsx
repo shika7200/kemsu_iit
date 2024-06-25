@@ -3,6 +3,7 @@ import { GridLayout,  NewsBlock,  ProfBlock } from '@/enteties'
 import { HomeContentProvider } from '@/providers/HomeContentProvider/HomeContentProvider';
 import { ContentSection } from '@/shared'
 import { useHomeContent } from '@/providers/HomeContentProvider/HomeContentProvider';
+import { isUserAuthenticated } from '@/utils';
 
 
 const HomePage: React.FC = () => {
@@ -12,6 +13,7 @@ const HomePage: React.FC = () => {
   const historyContent = homeContent.find(content => content.label === 'История кафедры');
   const researchContent = homeContent.find(content => content.label === 'Научная деятельность');
   const specificProf = profs.find(prof => prof.surname === 'Ли');
+  const isAuth = isUserAuthenticated();
 
   // Найти новейший элемент news
   const latestNews = news[0];
@@ -30,7 +32,7 @@ const HomePage: React.FC = () => {
           mail={specificProf.mail}
           description={specificProf.description}
           orientation={specificProf.orientation}
-          isAuthorized={true} // Измените на нужное значение
+          isAuthorized={isAuth} // Измените на нужное значение
         />
       )}
       {historyContent && (

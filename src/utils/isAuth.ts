@@ -5,9 +5,9 @@
   }
 
   const accessToken = document.cookie.split('; ').find(row => row.startsWith('access_token'));
-  const localStorageToken = localStorage.getItem('pocketbase_auth');
+ 
   
-  return !!accessToken || !!localStorageToken;
+  return !!accessToken ;
 };
 
 export default isUserAuthenticated;
