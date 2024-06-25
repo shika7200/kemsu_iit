@@ -1,6 +1,6 @@
 /* MenuWidget.module.scss */
 .main {
-    @apply flex flex-col justify-center mx-auto w-full text-4xl text-center text-black max-w-[480px];
+    @apply flex flex-col justify-center mx-auto w-full text-4xl text-center text-black max-w-[250px] ;
   }
   
   .nav {
@@ -79,7 +79,7 @@
   }
   
   .menu {
-    @apply flex gap-5 self-center pl-20 mt-6 rounded-2xl bg-stone-300 transition-opacity duration-500 ease-in-out;
+    @apply flex gap-5 self-center pl-20 mt-6 rounded-2xl bg-stone-300 transition-opacity duration-500 ease-in-out shadow-md mb-4;
   }
   
   .menuHidden {
