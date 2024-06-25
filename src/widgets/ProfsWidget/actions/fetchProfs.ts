@@ -24,7 +24,7 @@ const getImageOrientation = async (imgSrc: string): Promise<string> => {
 export const fetchProfs = async () => {
   try {
     
-    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tlNh26');
+    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tINh26!!');
 
     const records = await pb.collection('profs').getFullList({
       sort: '-created',

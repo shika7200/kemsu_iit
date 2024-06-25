@@ -21,11 +21,25 @@ const getImageOrientation = async (imgSrc: string): Promise<string> => {
   });
 };
 
- const fetchNews = async (): Promise<NewsBlockProps[]> => {
+const CACHE_KEY_NEWS = 'news_data_cache';
+const CACHE_DURATION = 30 * 60 * 1000; // 30 минут
+
+const fetchNews = async (): Promise<NewsBlockProps[]> => {
+  // Проверка наличия кэша
+  const cachedData = localStorage.getItem(CACHE_KEY_NEWS);
+  if (cachedData) {
+    const { data, timestamp } = JSON.parse(cachedData);
+    const now = new Date().getTime();
+    // Проверка, не устарели ли кэшированные данные
+    if (now - timestamp < CACHE_DURATION) {
+      console.log('Returning cached news data');
+      return data;
+    }
+  }
+
   try {
     // Выполняем авторизацию
-    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tlNh26');
-
+    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tINh26!!');
     const records = await pb.collection('news').getFullList({
       sort: '-created',
     });
@@ -52,10 +66,18 @@ const getImageOrientation = async (imgSrc: string): Promise<string> => {
     );
 
     console.log('Fetched news with orientation:', newsWithOrientation); // Логируем данные
+
+    // Сохранение данных в кэш
+    localStorage.setItem(CACHE_KEY_NEWS, JSON.stringify({
+      data: newsWithOrientation,
+      timestamp: new Date().getTime()
+    }));
+
     return newsWithOrientation;
   } catch (error) {
     console.error('Error fetching news:', error); // Логируем ошибку
     throw error;
   }
 };
+
 export default fetchNews;

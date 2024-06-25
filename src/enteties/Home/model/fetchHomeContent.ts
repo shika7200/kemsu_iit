@@ -22,6 +22,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30 минут в миллисекун�
 
   // Если кэша нет или он устарел, загружаем данные заново
   try {
+    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tINh26!!');
     const result = await pb.collection('home').getFullList({
       sort: '-created',
     });

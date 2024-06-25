@@ -24,7 +24,7 @@ const getImageOrientation = async (imgSrc: string): Promise<string> => {
 export const fetchNews = async () => {
   try {
     // Выполняем авторизацию
-    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tlNh26');
+    await pb.admins.authWithPassword('kemsu-mats@tutamail.com', '5@tINh26!!');
 
     const records = await pb.collection('news').getFullList({
       sort: '-created',
