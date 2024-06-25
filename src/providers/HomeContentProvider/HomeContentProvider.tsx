@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { fetchHomeContent, fetchProfs } from '@/enteties';
-import { Home, Prof } from '@/enteties/Home/model/types';
+import { fetchHomeContent, fetchNews, fetchProfs } from '@/enteties';
+import { Home, NewsBlockProps, Prof } from '@/enteties/Home/model/types';
 import { HomeContentContextProps, HomeContentProviderProps } from './types';
 
 
@@ -8,9 +8,11 @@ const HomeContentContext = createContext<HomeContentContextProps | undefined>(un
 
 
 
- const HomeContentProvider: React.FC<HomeContentProviderProps> = ({ children }) => {
+
+export const HomeContentProvider: React.FC<HomeContentProviderProps> = ({ children }) => {
   const [homeContent, setHomeContent] = useState<Home[]>([]);
   const [profs, setProfs] = useState<Prof[]>([]);
+  const [news, setNews] = useState<NewsBlockProps[]>([]);
 
   const fetchHomeContentCallback = useCallback(async () => {
     const fetchedHomeContent = await fetchHomeContent();
@@ -22,13 +24,19 @@ const HomeContentContext = createContext<HomeContentContextProps | undefined>(un
     setProfs(fetchedProfs);
   }, []);
 
+  const fetchNewsCallback = useCallback(async () => {
+    const fetchedNews = await fetchNews();
+    setNews(fetchedNews);
+  }, []);
+
   useEffect(() => {
     fetchHomeContentCallback();
     fetchProfsCallback();
-  }, [fetchHomeContentCallback, fetchProfsCallback]);
+    fetchNewsCallback();
+  }, [fetchHomeContentCallback, fetchProfsCallback, fetchNewsCallback]);
 
   return (
-    <HomeContentContext.Provider value={{ homeContent, profs, fetchHomeContent: fetchHomeContentCallback, fetchProfs: fetchProfsCallback }}>
+    <HomeContentContext.Provider value={{ homeContent, profs, news, fetchHomeContent: fetchHomeContentCallback, fetchProfs: fetchProfsCallback, fetchNews: fetchNewsCallback }}>
       {children}
     </HomeContentContext.Provider>
   );
@@ -41,5 +49,3 @@ export const useHomeContent = () => {
   }
   return context;
 };
-
-export default HomeContentProvider;

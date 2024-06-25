@@ -5,7 +5,7 @@ export type Home =  {
     created: string;
     updated: string;
     label: string;
-    description: string; // HTML content
+    description: string;
   }
 
   export type Prof = {
@@ -23,4 +23,20 @@ export type Home =  {
     mail: string;
     description: string;
     orientation: string;
+  }
+
+
+
+  export type NewsBlockProps = {
+    id: string;
+  collectionId: string;
+  collectionName: string;
+  created: string;
+  updated: string;
+  title: string;
+  image: string;
+  text: string;
+  date: string;
+  orientation: string;
+  imgSrc: string;
   }
