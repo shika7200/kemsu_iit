@@ -1,5 +1,5 @@
 import  { useEffect } from 'react';
-import { GridLayout, NewsBlock, ProfBlock, ContactCard } from "@/enteties";
+import { GridLayout, NewsBlock, ProfBlock, ContactCard, SimpleProfList } from "@/enteties";
 import { useHomeContent } from "@/providers";
 import { ContentSection } from "@/shared";
 import { isUserAuthenticated } from "@/utils";
@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
     console.log('Контакты ещё не загружены');
     return <div>Loading contacts...</div>;
   }
-
+  const filteredProfs = profs.filter(prof => prof.name !== "Ли");
   const historyContent = homeContent.find(content => content.label === 'История кафедры');
   const researchContent = homeContent.find(content => content.label === 'Научная деятельность');
   const specificProf = profs.find(prof => prof.surname === 'Ли');
@@ -50,22 +50,7 @@ const HomePage: React.FC = () => {
           description={historyContent.description}
         />
       )}
-      {latestNews && (
-        <NewsBlock
-          key={latestNews.id}
-          title={latestNews.title}
-          imgSrc={latestNews.imgSrc}
-          text={latestNews.text}
-          date={latestNews.date}
-          orientation={latestNews.orientation}
-        />
-      )}
-      {researchContent && (
-        <ContentSection
-          label={researchContent.label}
-          description={researchContent.description}
-        />
-      )}
+      <SimpleDirectionWidget bachelors={bachelors} masters={masters} />
       {departmentContact && (
         <ContactCard
           key={departmentContact.id}
@@ -76,9 +61,30 @@ const HomePage: React.FC = () => {
           id={''}
         />
       )}
-      <SimpleDirectionWidget bachelors={bachelors} masters={masters} />
+      
+      {researchContent && (
+        <ContentSection
+          label={researchContent.label}
+          description={researchContent.description}
+        />
+      )}
+      
+      
+      <SimpleProfList profs={filteredProfs} />
+      {latestNews && (
+        <NewsBlock
+          key={latestNews.id}
+          title={"Последние новости"}
+          imgSrc={latestNews.imgSrc}
+          text={latestNews.text}
+          date={latestNews.date}
+          orientation={latestNews.orientation}
+        />
+      )}
     </GridLayout>
   );
 };
 
 export default HomePage;
+
+

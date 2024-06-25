@@ -55,7 +55,7 @@ const fetchNews = async (): Promise<NewsBlockProps[]> => {
           collectionName: newsItem.collectionName,
           created: newsItem.created,
           updated: newsItem.updated,
-          title: newsItem.title,
+          title: newsItem.article,
           image: newsItem.image,
           imgSrc: imgSrc,
           text: newsItem.text,

@@ -1,5 +1,5 @@
 .section {
-  @apply flex flex-col w-full text-white bg-blue-400;
+  @apply flex flex-col w-full text-white bg-blue-400 shadow-md mb-4;
   min-height: 100%;
   border-radius: 10px;
   align-items: center;

@@ -1,0 +1,17 @@
+
+
+.container {
+  @apply max-h-72 overflow-y-auto border p-4   rounded-lg text-xl text-center mb-4 shadow-md; // text-lg заменён на text-xl
+}
+
+.list {
+  @apply list-none p-0;
+}
+
+.item {
+  @apply mb-2;
+}
+
+.header { 
+  @apply bg-blue-400 text-white py-2 inline-block rounded-lg text-xl; // text-lg заменён на text-xl для большего размера
+}

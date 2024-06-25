@@ -1,5 +1,5 @@
 .section {
-  @apply flex flex-col w-full text-white bg-blue-400;
+  @apply flex flex-col w-full text-white bg-blue-400 mb-4 shadow-md;
   min-height: 100%; /* Заставляет секцию растягиваться на всю доступную высоту */
   border-radius: 10px; /* Добавить скругление углов для секции */
   align-items: center; /* Центрировать содержимое по горизонтали */

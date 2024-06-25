@@ -9,3 +9,4 @@ export {default as fetchContacts} from './Home/model/fetchContacts';
 export {default as fetchDirections} from './Home/model/fetchDirection';
 export {default as ContactCard} from './ContactCard';
 export {default as DirectionBlock} from './DirectionBlock';
+export {default as SimpleProfList} from './SimpleProfList';

@@ -11,7 +11,7 @@ const DirectionBlock: React.FC<DirectionBlockProps> = ({
     selectedDirection
   }) => {
     return (
-      <>
+      <div className={styles.block}>
         <li className={styles.blockItem}>
           <div
             onClick={() => onDescriptionClick(direction)}
@@ -32,7 +32,7 @@ const DirectionBlock: React.FC<DirectionBlockProps> = ({
             </div>
           </div>
         )}
-      </>
+     </div>
     );
   };
   
