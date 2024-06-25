@@ -1,20 +1,25 @@
+
+
 .container {
-    @apply p-5 bg-gray-100 rounded-lg max-h-96 overflow-y-auto;
-  }
-  
-  .label {
-    @apply text-2xl font-bold mb-4;
-  }
-  
-  .content {
-    @apply text-lg;
-  
-    h2 {
-      @apply text-2xl font-bold mt-4 mb-2;
-    }
-  
-    p {
-      @apply mb-4;
-    }
-  }
-  
+  @apply p-5 bg-gray-100 rounded-lg relative;
+}
+
+.label {
+  @apply text-2xl font-bold mb-4 sticky top-0 bg-gray-100 z-10 p-2;
+}
+
+.contentWrapper {
+  @apply max-h-96 overflow-y-auto;
+}
+
+.content {
+  @apply text-lg;
+}
+
+.content h2 {
+  @apply text-2xl font-bold mt-4 mb-2;
+}
+
+.paragraph {
+  @apply mb-4;
+}

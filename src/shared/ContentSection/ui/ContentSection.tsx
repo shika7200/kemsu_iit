@@ -4,12 +4,11 @@ import styles from './ContentSection.module.scss';
 import { ContentSectionProps } from '../types';
 import { isHTML } from '@/utils';
 
-
-
 const ContentSection: React.FC<ContentSectionProps> = ({ label, description }) => {
-    return (
-      <div className={styles.container}>
-        <h1 className={styles.label}>{label}</h1>
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.label}>{label}</h1>
+      <div className={styles.contentWrapper}>
         {isHTML(description) ? (
           <div
             className={styles.content}
@@ -23,7 +22,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({ label, description }) =
           </div>
         )}
       </div>
-    );
-  };
-  
-  export default ContentSection;
+    </div>
+  );
+};
+
+export default ContentSection;
