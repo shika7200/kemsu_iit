@@ -8,8 +8,8 @@ export const handleLogoutConfirm = (
   setShowLogoutConfirmation: (showLogoutConfirmation: boolean) => void
 ) => {
   if (typeof window !== 'undefined') {
-    Cookies.remove('access_token', { path: '', domain: window.location.hostname, sameSite: 'Strict', secure: true });
-    localStorage.removeItem('pocketbase_auth');
+   
+    localStorage.removeItem('access_token');
     console.log('localStorage pocketbase_auth удален');
     const pb = new PocketBase('https://mats-kemsu.pockethost.io');
     pb.authStore.clear();
