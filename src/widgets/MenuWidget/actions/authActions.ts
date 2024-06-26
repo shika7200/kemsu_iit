@@ -1,11 +1,6 @@
 import Cookies from 'js-cookie';
+import PocketBase from 'pocketbase';
 
-const deleteCookie = (name: string, path: string, domain: string) => {
-  if (typeof window !== 'undefined') {
-    document.cookie = `${name}=; Max-Age=0; path=${path}; domain=${domain}; SameSite=None; Secure`;
-    console.log(`Cookie ${name} удалена`);
-  }
-};
 
 export const handleLogoutConfirm = (
   router: any, 
@@ -16,6 +11,9 @@ export const handleLogoutConfirm = (
     Cookies.remove('access_token', { path: '', domain: window.location.hostname, sameSite: 'Strict', secure: true });
     localStorage.removeItem('pocketbase_auth');
     console.log('localStorage pocketbase_auth удален');
+    const pb = new PocketBase('https://mats-kemsu.pockethost.io');
+    pb.authStore.clear();
+   
 
     setIsAuthenticated(false);
     setShowLogoutConfirmation(false);
