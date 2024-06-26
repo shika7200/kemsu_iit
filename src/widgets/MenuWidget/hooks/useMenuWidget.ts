@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import { isUserAuthenticated } from '@/utils';
 import { useRouter } from 'next/router';
 import { filteredMenuItems } from '../actions';
-
-
-
 export const useMenuWidget = (menuItems: MenuItemProps[], menuItemsAuth: MenuItemProps[]) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -14,28 +11,22 @@ export const useMenuWidget = (menuItems: MenuItemProps[], menuItemsAuth: MenuIte
   useEffect(() => {
     setIsAuthenticated(isUserAuthenticated());
   }, []);
-
-  const handleMenuClick = () => {
+const handleMenuClick = () => {
     setIsMenuOpen(true);
   };
-
-  const handleClosePopup = () => {
+const handleClosePopup = () => {
     setIsMenuOpen(false);
     setShowLogoutConfirmation(false);
   };
-
-  const handleLogoutClick = () => {
+ const handleLogoutClick = () => {
     setShowLogoutConfirmation(true);
   };
-
-  const handleCancelLogout = () => {
+const handleCancelLogout = () => {
     setShowLogoutConfirmation(false);
   };
-
-  const currentPath = router.pathname;
+ const currentPath = router.pathname;
   const filteredItems = isAuthenticated ? filteredMenuItems(menuItemsAuth, currentPath) : filteredMenuItems(menuItems, currentPath);
-
-  return {
+return {
     isMenuOpen,
     setIsMenuOpen,
     isAuthenticated,

@@ -20,16 +20,15 @@ const MenuWidget: React.FC = () => {
     router,
   } = useMenuWidget(menuItems, menuItemsAuth);
 
-  return (
+  return ( //Здесь следует реализация компонента . Для слайда свернута
     <>
       <div className={`${styles.menu} ${isMenuOpen ? styles.menuHidden : ""}`}>
         <Menu onClick={handleMenuClick} />
       </div>
       {isMenuOpen && (
         <div
-          className={`${styles.popupOverlay} ${
-            isMenuOpen ? styles.popupOverlayOpen : ""
-          }`}
+          className={`${styles.popupOverlay} ${isMenuOpen ? styles.popupOverlayOpen : ""
+            }`}
           onClick={handleClosePopup}
         >
           <div
