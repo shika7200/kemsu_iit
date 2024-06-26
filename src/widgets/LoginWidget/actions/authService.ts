@@ -1,6 +1,5 @@
 // actions/authService.ts
 import PocketBase from 'pocketbase';
-import Cookies from 'js-cookie';
 
 const pb = new PocketBase('https://mats-kemsu.pockethost.io');
 pb.autoCancellation(false); // Глобально отключаем автоотмену запросов
@@ -17,7 +16,8 @@ export const loginUser = async (
     console.log('Authenticated successfully:', authData);
     console.log('Token:', pb.authStore.token);
 
-    Cookies.set('access_token', pb.authStore.token, { expires: 1 / 24, sameSite: 'Strict',secure: true  }); // 1 hour
+    // Сохраняем токен в localStorage
+    localStorage.setItem('access_token', pb.authStore.token);
 
     return true; // Возвращаем true при успешной авторизации
   } catch (error: any) {
@@ -40,7 +40,8 @@ export const loginUser = async (
 export const refreshToken = async (): Promise<string | null> => {
   try {
     const authData = await pb.collection('users').authRefresh();
-    Cookies.set('access_token', authData.token, { expires: 1 / 24, sameSite: 'Strict',  secure: true }); // 1 hour
+    // Обновляем токен в localStorage
+    localStorage.setItem('access_token', authData.token);
     return authData.token;
   } catch (error) {
     console.error('Failed to refresh token:', error);
@@ -50,5 +51,6 @@ export const refreshToken = async (): Promise<string | null> => {
 
 export const logoutUser = () => {
   pb.authStore.clear();
-  Cookies.remove('access_token');
+  // Удаляем токен из localStorage
+  localStorage.removeItem('access_token');
 };
