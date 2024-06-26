@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { Menu, MenuItem } from "@/features";
 import styles from "./MenuWidget.module.scss";
