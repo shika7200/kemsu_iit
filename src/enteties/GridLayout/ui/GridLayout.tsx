@@ -1,4 +1,4 @@
-import { Footer, Header } from "@/ui";
+import { Footer, Header } from "@/shared";
 import styles from "./GridLayout.module.scss";
 import { MenuWidget } from "@/widgets";
 

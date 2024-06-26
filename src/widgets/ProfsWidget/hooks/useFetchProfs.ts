@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import localforage from 'localforage';
-import { isUserAuthenticated } from '@/utils';
+import { isUserAuthenticated } from '@/shared/utils';
 import { fetchProfs } from '../actions';
 
 const CACHE_KEY = 'profsData';

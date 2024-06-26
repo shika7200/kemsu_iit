@@ -1,5 +1,5 @@
 
-import { HomeContentProvider } from '@/providers/HomeContentProvider/HomeContentProvider';
+import { HomeContentProvider } from '@/shared/providers/HomeContentProvider/HomeContentProvider';
 import { HomePage } from '@/widgets';
 
 

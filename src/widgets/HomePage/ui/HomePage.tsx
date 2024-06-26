@@ -1,8 +1,8 @@
 import  { useEffect } from 'react';
-import { GridLayout, NewsBlock, ProfBlock, ContactCard, SimpleProfList } from "@/enteties";
-import { useHomeContent } from "@/providers";
-import { ContentSection } from "@/shared";
-import { isUserAuthenticated } from "@/utils";
+import { GridLayout, NewsBlock, ProfBlock, ContactCard, SimpleProfList, ContentSection } from "@/enteties";
+import { useHomeContent } from "@/shared/providers";
+
+import { isUserAuthenticated } from "@/shared/utils";
 import { SimpleDirectionWidget } from '@/widgets';
 
 const HomePage: React.FC = () => {

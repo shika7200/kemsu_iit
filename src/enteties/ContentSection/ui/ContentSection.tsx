@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ContentSection.module.scss';
 
 import { ContentSectionProps } from '../types';
-import { isHTML } from '@/utils';
+import { isHTML } from '@/shared/utils';
 
 const ContentSection: React.FC<ContentSectionProps> = ({ label, description }) => {
   return (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { isUserAuthenticated } from '@/utils';
+import { isUserAuthenticated } from '@/shared/utils';
 import { useRouter } from 'next/router';
 import { filteredMenuItems } from '../actions';
 export const useMenuWidget = (menuItems: MenuItemProps[], menuItemsAuth: MenuItemProps[]) => {

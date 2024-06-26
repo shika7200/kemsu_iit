@@ -1,6 +1,6 @@
 import styles from "./MainLayout.module.scss"
 import { MenuWidget } from "@/widgets";
-import { Footer, Header } from "@/ui";
+import { Footer, Header } from "@/shared";
 
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
