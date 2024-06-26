@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 const deleteCookie = (name: string, path: string, domain: string) => {
   if (typeof window !== 'undefined') {
     document.cookie = `${name}=; Max-Age=0; path=${path}; domain=${domain}; SameSite=None; Secure`;
@@ -11,8 +13,7 @@ export const handleLogoutConfirm = (
   setShowLogoutConfirmation: (showLogoutConfirmation: boolean) => void
 ) => {
   if (typeof window !== 'undefined') {
-    // Удаляем токены из cookies и localStorage с учетом всех атрибутов
-    deleteCookie('access_token', '/', window.location.hostname);
+    Cookies.remove('access_token', { path: '', domain: window.location.hostname, sameSite: 'Strict', secure: true });
     localStorage.removeItem('pocketbase_auth');
     console.log('localStorage pocketbase_auth удален');
 

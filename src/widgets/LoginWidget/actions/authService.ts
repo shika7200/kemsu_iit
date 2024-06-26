@@ -17,7 +17,7 @@ export const loginUser = async (
     console.log('Authenticated successfully:', authData);
     console.log('Token:', pb.authStore.token);
 
-    Cookies.set('access_token', pb.authStore.token, { expires: 1 / 24, sameSite: 'Strict' }); // 1 hour
+    Cookies.set('access_token', pb.authStore.token, { expires: 1 / 24, sameSite: 'Strict',secure: true  }); // 1 hour
 
     return true; // Возвращаем true при успешной авторизации
   } catch (error: any) {
@@ -40,7 +40,7 @@ export const loginUser = async (
 export const refreshToken = async (): Promise<string | null> => {
   try {
     const authData = await pb.collection('users').authRefresh();
-    Cookies.set('access_token', authData.token, { expires: 1 / 24, sameSite: 'Strict' }); // 1 hour
+    Cookies.set('access_token', authData.token, { expires: 1 / 24, sameSite: 'Strict',  secure: true }); // 1 hour
     return authData.token;
   } catch (error) {
     console.error('Failed to refresh token:', error);
